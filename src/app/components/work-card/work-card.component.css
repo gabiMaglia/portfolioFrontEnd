@@ -1,0 +1,65 @@
+#work-card {
+    color: var(--boostrapGrey);
+  }
+  #card-container{
+    padding-inline: auto;
+  }
+  #carousel{
+    max-height: 200px;
+    z-index: -1;
+    width: min(420px, 100%);
+  }
+  
+  .carousel-pic {
+    width: 100%;
+  }
+  
+  #data-box {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    gap: 5rem;
+    
+  }
+  
+  .job-description {
+    margin-inline: auto;
+    width: min(0, 90%);
+    min-height: 6rem;
+    color: var(--white);
+    font-size: 1.125rem;
+    background-color: var(--boostrapBlack);
+    box-shadow: 0 10px 30px -15px var(--shadow);
+    border-radius: var(--borderRadius);
+    z-index: 1;
+  }
+  
+  .links{
+    background-color: var(--boostrapBlack);
+  
+  
+  }
+
+  .titleDesktop{
+    display: none;
+  }  
+
+
+  @media (min-width: 1200px) {
+  .titleDesktop{
+    display: block;
+  }  
+  .titleMobile{
+    display: none;
+  }
+  }
+
+  @media (min-width: 1333px){
+    #data-box {
+      text-align: right;
+  
+    }
+  }
+  
+  

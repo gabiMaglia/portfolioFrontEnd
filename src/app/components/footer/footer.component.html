@@ -1,0 +1,93 @@
+<footer  class="bg-dark text-center text-white">
+    <!-- form -->
+    <div id="contact" class="content holder bg-dark text-white">
+      <div class="form">
+        <form
+          action="/contacto"
+          method="post"
+          class="formulario"
+        >
+          <h2>Contact Me</h2>
+          <p>
+            <input
+              type="text"
+              name="nombre"
+              required
+            />
+            <label for="nombre">Name</label>
+          </p>
+          <p>
+            <input
+              type="text"
+              name="apellido"
+              required
+            />
+            <label for="apellido">Surname</label>
+          </p>
+          <p>
+            <input
+              type="text"
+              name="mail"
+              required
+            />
+            <label for="mail">Email</label>
+          </p>
+          <p>
+            <input
+              type="text"
+              name="mensaje"
+              placeholder="Mensaje"
+            />
+            <label for="mensaje"></label>
+          </p>
+         
+          <p>
+             <button type="submit" class="btn btn-outline-light" > Send </button>
+          </p>
+  
+        </form>
+      </div>
+    </div>  
+    <!-- end form -->
+  
+  
+      <!-- Grid container -->
+      <div class="container-sm p-4 pb-0">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+          <!-- Facebook -->
+          <a class="btn btn-outline-light btn-floating m-1" href={{data?.socialMedia.facebook}} target="_blank" role="button"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <!-- Google -->
+          <a class="btn btn-outline-light btn-floating m-1" href={{data?.socialMedia.Gmail}}  role="button"
+            ><i class="fab fa-google"></i
+          ></a>
+    
+          <!-- Instagram -->
+          <a class="btn btn-outline-light btn-floating m-1" href={{data?.socialMedia.instagram}} target="_blank" role="button"
+            ><i class="fab fa-instagram"></i
+          ></a>
+    
+          <!-- Linkedin -->
+          <a class="btn btn-outline-light btn-floating m-1" href={{data?.socialMedia.linkedin}} target="_blank" role="button"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+    
+          <!-- Github -->
+          <a class="btn btn-outline-light btn-floating m-1" href={{data?.socialMedia.github}} target="_blank" role="button"
+            ><i class="fab fa-github"></i
+          ></a>
+        </section>
+        <!-- Section: Social media -->
+      </div>
+      <!-- Grid container -->
+    
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2022 Copyright:
+        <a class="text-white" target="_blank" href={{data?.socialMedia.linkedin}}>{{data?.name}}</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+  

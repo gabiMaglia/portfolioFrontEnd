@@ -1,0 +1,11 @@
+@media (max-width : 991px) {
+    #navBarMenu {
+        text-align: center;
+        
+    }
+    .socialm{
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+    
+}

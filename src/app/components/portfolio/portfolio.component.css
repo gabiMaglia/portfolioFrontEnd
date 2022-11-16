@@ -1,0 +1,15 @@
+#my-work {
+    background-color: var(--white);
+    min-height: 60rem;
+    color: var(--white);
+    display: flex;
+    place-content: center;
+}
+
+.title{
+    text-align: center;
+    margin-bottom: 10rem;
+    color: var(--boostrapBlack);
+    top: 50%;
+
+}

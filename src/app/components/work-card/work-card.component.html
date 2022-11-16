@@ -1,0 +1,50 @@
+<article id="work-card">
+    <div
+      id="card-container"
+      class="row g-0  "
+    >
+      <div *ngFor="let job of jobs" id="data-box">
+
+        <h3 class="mt-5 mx-5 titleMobile">{{ job.title }}</h3>
+
+        <div class="col-xl-3" id="carousel">
+          <ngb-carousel class="carousel slide" data-bs-ride="carousel">
+            <ng-template ngbSlide *ngFor="let pic of job.img; let i = index">
+              <div class="picsum-img-wrapper">
+                <img [src]="pic" class="carousel-pic" alt="{{ job.title }}" />
+              </div>
+            </ng-template>
+          </ngb-carousel>
+        </div>
+  
+        <div class="col-xl-7" id="description">
+          <h3 class="my-5 mx-5 titleDesktop ">{{ job.title }}</h3>
+          
+          <div class="job-description">
+            <p class="my-3 mx-5">{{ job.description }}</p>
+          </div>
+  
+          <h6 class="mt-5 mx-5">{{ job.tecnologies }}</h6>
+  
+          <div class="mx-5 mt-5">
+            <a
+              href="{{ job.links.github }}"
+              target="_blank"
+              class="btn btn-outline-dark btn-floating m-1"
+              role="button"
+              ><i class="fa-brands fa-github"></i
+            ></a>
+            <a
+              href="{{ job.links.deploy }}"
+              target="_blank"
+              class="btn btn-outline-dark btn-floating m-1"
+              role="button"
+              ><i class="fa-sharp fa-solid fa-square-arrow-up-right"></i
+            ></a>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </article>
+  

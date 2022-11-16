@@ -1,0 +1,36 @@
+<article class="container-fluid m-0 p-0 g-0 section-container ">
+  <div id="container" class="container-xxl ">
+    <div
+      class="row portada"
+      id="portada"
+      [ngClass]="{ hide: hide }"
+      (click)="unfold()"
+    >
+      <div class="col-xxl-12">
+        <h2
+          matTooltip="Click and Hold!"
+          class="hover-underline-animation-dark title"
+        >
+          Studies
+        </h2>
+      </div>
+    </div>
+
+    <div class="col-12" (click)="unfold()">
+      <article
+        *ngFor="let studie of studies"
+        class="row mx-1 py-3 d-flex flex-wraprounded-top rounded-bottom bg-none border studies-cont"
+      >
+        <div class="col-2 img-job-cont">
+          <img class="img-thumbnail" [src]="studie.img" alt="UtnBa" />
+        </div>
+        <div class="col-10 d-flex flex-column justify-content-center data-cont">
+          <h4>{{ studie.institution }}</h4>
+          <h5>{{ studie.title }}</h5>
+          <p class="description">{{ studie.description }}</p>
+          <h6>{{ studie.date }}</h6>
+        </div>
+      </article>
+    </div>
+  </div>
+</article>

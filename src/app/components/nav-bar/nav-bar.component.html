@@ -1,0 +1,54 @@
+<nav id="nav-bar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top navbar-scroll ">
+    <div class="container-fluid nav-cont">
+      <h1 class="navbar-brand m-0">{{data?.name}}</h1>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navBarMenu" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navBarMenu">
+        <ul class="navbar-nav nav-pills me-auto">
+          <li class="nav-item">
+            <a class="nav-link active hover-underline-animation-light" href="#front-page">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link hover-underline-animation-light"  href="#about-me">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link hover-underline-animation-light" href="#expStu">Studies/Experience</a>
+          
+          </li>
+          <li class="nav-item">
+            <a class="nav-link hover-underline-animation-light" href="#my-work">Works</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link hover-underline-animation-light" href="#contact">Contact</a>
+          </li>
+        </ul>
+        
+        <ul class="navbar-nav d-flex flex-row align-items-center justify-content-center socialm">
+        
+            <li class="nav-item me-lg-0">
+              <a class="btn btn-outline-light btn-floating mx-1" href={{data?.socialMedia.github}} target="_blank">
+                  <i class="fa-brands fa-github"></i>
+              </a>
+            </li>
+            <li class="nav-item  me-lg-0">
+              <a class="btn btn-outline-light btn-floating mx-1" href={{data?.socialMedia.instagram}} target="_blank">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+        
+          </ul>
+          
+        
+            <a class="nav-link" target="_blank" href="/src/assets/pdf/CurriculumVitaeGabrielMaglia.pdf">
+              <button id="resumebtn" class="btn btn-outline-light" >
+                Resume
+              </button>
+            </a>
+       
+          
+      </div>
+    </div>
+</nav>

@@ -1,0 +1,57 @@
+<section class="container-fluid m-0 p-0 g-0 section-container" id="about-me">
+    
+      <div class="row" id="about-container">
+        <div class="col-lg-6 m-0 p-0 white-column" data-aos="fade-right">
+          <h2 class="hover-underline-animation-dark title">About</h2>
+        </div>
+  
+        <div class="col-lg-6 m-0 p-0 black-column" data-aos="fade-left">
+          <img
+            id="profile-pic"
+            [src]="data?.about.img"
+            alt="Gabriel Alejandro Maglia"
+          />
+  
+          <div id="description">
+            <div class="m-3 p-2 lDescription">
+              <p *ngFor="let phrases of lDescription">{{ phrases }}</p>
+            </div>
+            <!-- <div clas
+                          s="btn-edit ms-3">
+                          <a href="#"><i class="fa fa-pen"></i></a>
+                      </div> -->
+          </div>
+        </div>
+      </div>
+  
+      <div class="row" id="skills-container">
+        <div class="col-lg-6 m-0 p-0 black-column">
+          <div class="row cont">
+            <div id="soft-skills" class="col-12">
+              <figure *ngFor="let skill of softSkills" class="hex-icon">
+                <div class="hex">
+                  <img class="soft-skills-icons" [src]="skill?.img" alt="" />
+                </div>
+                <figcaption class="mt-3">{{ skill.name }}</figcaption>
+              </figure>
+            </div>
+          </div>
+  
+          <div class="row cont">
+            <div class="col-12" id="languages-box">
+              <figure *ngFor="let skill of hardSkills">
+                <img class="img-lang" [src]="skill.img" alt="HTML" />
+                <figcaption>{{ skill.name }}</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-lg-6 m-0 p-0 white-column">
+          <h2 class="hover-underline-animation-dark title">
+            Soft And Hard Skills
+          </h2>
+        </div>
+      </div>
+  </section>
+  

@@ -15,6 +15,7 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { FooterComponent } from './components/footer/footer.component';
 import { WorkCardComponent } from './components/work-card/work-card.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
     ExperienceComponent,
     FooterComponent,
     WorkCardComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    LoginComponent
   ],
   imports: [
     HttpClientModule,

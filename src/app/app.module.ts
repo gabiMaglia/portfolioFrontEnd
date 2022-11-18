@@ -16,6 +16,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { WorkCardComponent } from './components/work-card/work-card.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LoginComponent } from './components/login/login.component';
     FooterComponent,
     WorkCardComponent,
     PortfolioComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     HttpClientModule,

@@ -38,15 +38,26 @@
                 <i class="fab fa-instagram"></i>
               </a>
             </li>
-        
-          </ul>
-          
-        
             <a class="nav-link" target="_blank" href="/src/assets/pdf/CurriculumVitaeGabrielMaglia.pdf">
               <button id="resumebtn" class="btn btn-outline-light" >
                 Resume
               </button>
             </a>
+            <li class="nav-link" *ngIf="!islog">
+              <a class="btn btn-outline-light btn-floating mx-1" href="/login">
+                <i class="fa-solid fa-right-to-bracket"></i>
+              </a>
+            </li> 
+            
+            <li class="nav-link" *ngIf="islog">
+              <a class="btn btn-outline-light btn-floating mx-1" (click)="logout()"  href="/home">
+                <i class="fa-solid fa-right-from-bracket"></i>
+              </a>
+            </li> 
+
+          </ul>
+          
+        
        
           
       </div>

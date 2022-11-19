@@ -3,14 +3,14 @@
             <div class="admin">
                       <div class="rota">
                             <h1>ADM</h1>
-                            <input id="username" type="text" name="name" value="" placeholder="Username"/><br />
-                            <input id="password" type="password" name="pass" value="" placeholder="Password"/>
+                            <input [(ngModel)]="user.username" id="username" class="form-control" type="text" name="name" value="" placeholder="Username"/><br />
+                            <input [(ngModel)]='user.pass' id="password" class="form-control" type="password" name="pass" value="" placeholder="Password"/>
                       </div>
                 </div>
                 <div class="cms">
                       <div class="roti">
                             <h1>LOG</h1>
-                            <button id="valid" type="button" name="valid">Ingresar</button><br/>                
+                            <button id="valid" type="button" name="valid" (click)="login()">Ingresar</button><br/>                
           </div>
                 </div>
           </form>

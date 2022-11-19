@@ -7,27 +7,36 @@ import { Router } from 'express';
 })
 export class AuthService {
   
-  api = 'https://localhost:3000/api';
+  private api = 'http://localhost:3000';
   token: any; 
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient) { }
 
-  login(email: string, password: string ) {
-    this.http.post(this.api  + '/authenticate', {email: email, password: password})
-              .subscribe((resp: any) => {
-                //Redireccionamos al usuario a su perfil
-                (<any> this.router).navigate(['profile'])
-                //Guardamos el token en localStorage
-                localStorage.setItem('auth_token', resp.token)
 
-              });
-              
+  singin(user:any) {
+    return this.http.post(`${this.api}/user/singin`, user)
+  
   }
+
+
+
+
+  // login(usuario: string, password: string ) {
+  //   this.http.post(this.api  + '/authenticate', {usuario: usuario, password: password})
+  //             .subscribe((resp: any) => {
+  //               //Redireccionamos al usuario a su perfil
+  //                 (<any> this.router).navigate(['profile'])
+  //                 //Guardamos el token en localStorage
+  //                 localStorage.setItem('auth_token', resp.token)
+  
+  //             });
+              
+  // }
   logout() {
     localStorage.removeItem('token')
   }
-
-  public get logIn(): Boolean {
+  
+  public islog(): Boolean {
     return (localStorage.getItem('token') !== null)
   }
 }

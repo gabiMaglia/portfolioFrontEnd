@@ -10,8 +10,11 @@
     padding-bottom: 120px;
     overflow: scroll;
   }
+  app-edit-pannel{
+    display: flex;
+    justify-content: flex-end;
+  }
   .studies-cont {
-    
     user-select: none;
     border-radius: var(--borderRadius);
     box-shadow: 0 10px 30px -15px var(--shadow);
@@ -19,6 +22,11 @@
     margin-bottom: 100px;
     background-color: var(--boostrapGrey);
     color: var(--white);
+  }
+  .studiesBoard{
+   margin-inline: center;
+    text-align: center;
+
   }
   .img-job-cont {
     width: min(object-fit, 100%);
@@ -61,10 +69,18 @@
     margin-left: -30000px
   }
 
+  #addBtn{
+    margin-bottom: 1rem;
+    width: 10rem;
+  }
   @media (max-width: 1030px) {
+    app-edit-pannel{
+      display: flex;
+      justify-content: center;
+    }
     .studies-cont {
       display: flex;
-      flex-direction: column-reverse;
+      flex-direction: column;
       align-items: center;
     }
     .data-cont {

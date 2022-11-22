@@ -21,6 +21,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  
   login():void {
     this.authService.singin(this.user).subscribe( (res: any) => {
       console.log(res.token)

@@ -3,7 +3,18 @@
     min-height: 60rem;
     color: var(--white);
     display: flex;
-    place-content: center;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 2rem;
+}
+a{
+    text-align: center;
+    
+}
+#addBtn{
+    margin-bottom: 1rem;
+   
+    width: 10rem;
 }
 
 .title{

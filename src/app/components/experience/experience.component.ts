@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth-service.service';
 import { DataRecoverService } from 'src/app/services/data-recover.service';
 
 
@@ -11,8 +12,9 @@ export class ExperienceComponent implements OnInit {
 
   jobs:any
   hide?:Boolean = false
+  isLog = this.authService.islog();
 
-  constructor(private getDataService: DataRecoverService) { }
+  constructor(private getDataService: DataRecoverService, private authService: AuthService) { }
 
   unfold(): void {
     this.hide = !!!this.hide

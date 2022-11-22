@@ -4,6 +4,10 @@
     width: 100%;
     overflow-x: hidden;
   }
+  app-edit-pannel{
+    display: flex;
+    justify-content: flex-start;
+  }
   #experience {
     margin: auto;
     gap: 15px;
@@ -40,7 +44,6 @@
   }
   
   .portada {
-    /* display: none !important; */
     z-index: 1;
     position: absolute;
     width: 100%;
@@ -51,6 +54,9 @@
     background-color: var(--white);
     transition: ease-in-out all 2s;
   }
+  .experienceBoard{
+    text-align: center;
+  }
 
   .hide{
     margin-left: -30000px
@@ -59,12 +65,24 @@
   .title {
     color: var(--boostrapBlack);
   }
+
+  #addBtn{
+    margin-bottom: 1rem;
+    width: 10rem;
+  }
   
   
   @media (max-width: 1030px) {
+    app-edit-pannel{
+      display: flex;
+      justify-content: center;
+      
+    }
+
+
     .exp-cont {
       display: flex;
-      flex-direction: column-reverse;
+      flex-direction: column;
      
       align-items: center;
     }

@@ -1,6 +1,7 @@
-<article class="container-fluid m-0 p-0 g-0 section-container ">
-  <div id="container" class="container-xxl ">
+<article class="container-fluid m-0 p-0 g-0 section-container">
+  <div id="container" class="container-xxl">
     <div
+      *ngIf="!isLog"
       class="row portada"
       id="portada"
       [ngClass]="{ hide: hide }"
@@ -16,11 +17,12 @@
       </div>
     </div>
 
-    <div class="col-12" (click)="unfold()">
+    <div class="col-12 studiesBoard" (click)="unfold()">
       <article
         *ngFor="let studie of studies"
         class="row mx-1 py-3 d-flex flex-wraprounded-top rounded-bottom bg-none border studies-cont"
       >
+      
         <div class="col-2 img-job-cont">
           <img class="img-thumbnail" [src]="studie.img" alt="UtnBa" />
         </div>
@@ -30,7 +32,14 @@
           <p class="description">{{ studie.description }}</p>
           <h6>{{ studie.date }}</h6>
         </div>
+        <app-edit-pannel></app-edit-pannel>
       </article>
+
+      <a *ngIf="isLog" class="" target="_blank" href="#">
+        <button id="addBtn" class="btn btn-outline-dark" >
+          + Add
+        </button>
+      </a>
     </div>
   </div>
 </article>

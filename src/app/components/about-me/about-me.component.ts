@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth-service.service';
 import { DataRecoverService } from 'src/app/services/data-recover.service';
 
 
@@ -8,14 +9,16 @@ import { DataRecoverService } from 'src/app/services/data-recover.service';
   styleUrls: ['./about-me.component.css']
 })
 export class AboutMeComponent implements OnInit {
-
+  
+  
   data:any
   softSkills?: [any]
   hardSkills?: [any]
   lDescription?:string
-
-  constructor(private getDataServices: DataRecoverService) { }
-
+  islog = this.authService.islog();
+  
+  constructor(private getDataServices: DataRecoverService, private authService: AuthService) { }
+  
   ngOnInit(): void {
     this.getDataServices.getData().subscribe( data => {
       this.data = data

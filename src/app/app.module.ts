@@ -18,6 +18,7 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { FormsModule } from '@angular/forms';
+import { EditPannelComponent } from './components/edit-pannel/edit-pannel.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FormsModule } from '@angular/forms';
     WorkCardComponent,
     PortfolioComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    EditPannelComponent
   ],
   imports: [
     FormsModule,

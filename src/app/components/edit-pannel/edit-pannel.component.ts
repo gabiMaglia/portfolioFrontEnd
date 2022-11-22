@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth-service.service';
 
 @Component({
-  selector: 'app-portfolio',
-  templateUrl: './portfolio.component.html',
-  styleUrls: ['./portfolio.component.css']
+  selector: 'app-edit-pannel',
+  templateUrl: './edit-pannel.component.html',
+  styleUrls: ['./edit-pannel.component.css']
 })
-export class PortfolioComponent implements OnInit {
+export class EditPannelComponent implements OnInit {
   isLog = this.authService.islog();
+  
   constructor(private authService: AuthService) { }
-
   ngOnInit(): void {
   }
 

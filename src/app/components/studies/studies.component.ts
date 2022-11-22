@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth-service.service';
 import { DataRecoverService } from 'src/app/services/data-recover.service';
 
 @Component({
@@ -10,11 +11,11 @@ import { DataRecoverService } from 'src/app/services/data-recover.service';
 export class StudiesComponent implements OnInit {
   studies?:[any]
   hide?:Boolean = false
-  
+  isLog = this.authService.islog();
   
   
 
-  constructor(private getDataService: DataRecoverService) { }
+  constructor(private getDataService: DataRecoverService, private authService: AuthService) { }
   
   
   unfold(): void {

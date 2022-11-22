@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth-service.service';
 
 @Component({
@@ -8,6 +8,8 @@ import { AuthService } from 'src/app/services/auth-service.service';
 })
 export class EditPannelComponent implements OnInit {
   isLog = this.authService.islog();
+
+  @Input() schema: string = 'btn-outline-light' 
   
   constructor(private authService: AuthService) { }
   ngOnInit(): void {

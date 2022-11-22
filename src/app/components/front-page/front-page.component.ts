@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-front-page',
@@ -6,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./front-page.component.css']
 })
 export class FrontPageComponent implements OnInit {
-
-  constructor() { }
+  isLog = this.autService.islog();
+  constructor(private autService:AuthService) { }
 
   ngOnInit(): void {
   }

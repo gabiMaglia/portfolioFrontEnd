@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { FrontPageComponent } from './components/front-page/front-page.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutMeComponent } from './components/about-me/about-me.component';
@@ -20,6 +20,8 @@ import { HomeComponent } from './components/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { EditPannelComponent } from './components/edit-pannel/edit-pannel.component';
 import { AddBtnComponent } from './components/common/add-btn/add-btn.component';
+import { ModalComponent } from './components/modal/modal.component';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { AddBtnComponent } from './components/common/add-btn/add-btn.component';
     LoginComponent,
     HomeComponent,
     EditPannelComponent,
-    AddBtnComponent
+    AddBtnComponent,
+    ModalComponent,
   ],
   imports: [
     FormsModule,

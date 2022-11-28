@@ -15,14 +15,16 @@ export class AuthService {
 
   singin(user:any) {
     return this.http.post(`${this.api}/user/singin`, user)
-  
   }
+    
+  
 
   logout() {
     localStorage.removeItem('token')
   }
   
   public islog(): Boolean {
-    return (localStorage.getItem('token') !== null)
+    return true;
+    // return (localStorage.getItem('token') !== null)
   }
 }

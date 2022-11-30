@@ -1,4 +1,6 @@
 <div *ngIf="isLog" class="editPannel">
-    <a class="btn {{schema}} btn-floating mx-1" href="#"><i class="fa-solid fa-pen-to-square"></i></a>
-    <a class="btn {{schema}} btn-floating mx-1" href="#"><i class="fa-solid fa-delete-left"></i></a>
+    <button  (click)= "openModal()" class="btn {{schema}} btn-floating mx-1" ><i class="fa-solid fa-pen-to-square"></i></button>
+    <button class="btn {{schema}} btn-floating mx-1" ><i class="fa-solid fa-delete-left"></i></button>
 </div>
+
+<ng-content #modal></ng-content>

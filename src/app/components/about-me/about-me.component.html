@@ -7,7 +7,25 @@
   
         <div class="col-lg-6 m-0 p-0 black-column" data-aos="fade-left">
           <div class="photo">
-            <app-edit-pannel  style = 'position: absolute;'></app-edit-pannel>
+            <app-edit-pannel [ngStyle] = "{'position': 'absolute'}" title="Change Photo">
+              <app-modal [title]="'Edit CatchPhrase'" #modal>
+                <form #form action="" method="post">
+                  <input
+                    [ngStyle]="{ width: '100%' }"
+                    name="catchPhrase"
+                    type="text"
+                    required
+                  />
+                  <button
+                    [ngStyle]="{ width: '100%', 'margin-top': '1rem' }"
+                    type="submit"
+                    class="btn btn-outline-dark btn-floating"
+                  >
+                    Accept
+                  </button>
+                </form>
+              </app-modal>
+            </app-edit-pannel>
             <img
               id="profile-pic"
               [src]="data?.about.img"
@@ -19,11 +37,8 @@
             <div class="lDescription">
               <p *ngFor="let phrases of lDescription">{{ phrases }}</p>
             </div>
-            <app-edit-pannel style = 'position: absolute; align-self: end;'></app-edit-pannel>
-            <!-- <div clas
-              s="btn-edit ms-3">
-              <a href="#"><i class="fa fa-pen"></i></a>
-            </div> -->
+            
+            <app-edit-pannel title="Edit Phrases"></app-edit-pannel>
           </div>
         </div>
       </div>

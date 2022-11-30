@@ -114,3 +114,16 @@ body {
   }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+i{
+  font-size: 1em;
+}
+
+.editPannel {
+  display: flex;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  font-size: 3em;
+  
+}

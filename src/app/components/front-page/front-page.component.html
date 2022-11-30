@@ -1,7 +1,31 @@
-<section id="front-page" >
-    
-    <h1 id="catch-phrase">Programing professional ideas <br> for fuN..</h1>
+<section id="front-page">
+  <h1 id="catch-phrase" #asPhrase>
+    {{ catchPhrase }} <br />
+    for fuN..
+  </h1>
 
-    <a *ngIf="isLog" class="btn btn-outline-dark btn-floating mx-1" href="#"><i class="fa-solid fa-pen-to-square"></i></a>
-    
+  <button
+    *ngIf="isLog"
+    (click)="modal.openModal()"
+    class="btn btn-outline-dark btn-floating mx-1"
+  >
+    <i class="fa-solid fa-pen-to-square"></i>
+  </button>
+  <app-modal [title]="'Edit CatchPhrase'" #modal>
+    <form #form action="" method="post">
+      <input
+        [ngStyle]="{ width: '100%' }"
+        name="catchPhrase"
+        type="text"
+        required
+      />
+      <button
+        [ngStyle]="{ width: '100%', 'margin-top': '1rem' }"
+        type="submit"
+        class="btn btn-outline-dark btn-floating"
+      >
+        Accept
+      </button>
+    </form>
+  </app-modal>
 </section>

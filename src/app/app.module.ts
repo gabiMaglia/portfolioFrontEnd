@@ -21,6 +21,7 @@ import { FormsModule } from '@angular/forms';
 import { EditPannelComponent } from './components/edit-pannel/edit-pannel.component';
 import { AddBtnComponent } from './components/common/add-btn/add-btn.component';
 import { ModalComponent } from './components/common/modal/modal.component';
+import { ArgProgLogoComponent } from './components/common/arg-prog-logo/arg-prog-logo.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { ModalComponent } from './components/common/modal/modal.component';
     EditPannelComponent,
     AddBtnComponent,
     ModalComponent,
+    ArgProgLogoComponent,
   ],
   imports: [
     FormsModule,

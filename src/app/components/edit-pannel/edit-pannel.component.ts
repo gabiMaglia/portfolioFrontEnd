@@ -24,7 +24,7 @@ export class EditPannelComponent implements OnInit {
   }
   
   openModal() {
-   return ModalComponent.prototype
+   return ModalComponent.prototype.openModal()
   }
  
 }

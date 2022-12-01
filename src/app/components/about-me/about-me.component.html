@@ -1,79 +1,154 @@
 <section class="container-fluid m-0 p-0 g-0 section-container" id="about-me">
-    
-      <div class="row" id="about-container">
-        <div class="col-lg-6 m-0 p-0 white-column" data-aos="fade-right">
-          <h2 class="hover-underline-animation-dark title">About</h2>
+  <div class="row" id="about-container">
+    <div class="col-lg-6 m-0 p-0 white-column" data-aos="fade-right">
+      <h2 class="hover-underline-animation-dark title">About</h2>
+    </div>
+
+    <div class="col-lg-6 m-0 p-0 black-column" data-aos="fade-left">
+      <div class="photo">
+        <div *ngIf="isLog" class="position-absolute editPannel">
+          <button
+            (click)="modal.openModal()"
+            class="btn btn-outline-light btn-floating mx-1"
+          >
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button class="btn btn-floating btn-outline-light mx-1">
+            <i class="fa-solid fa-delete-left"></i>
+          </button>
         </div>
-  
-        <div class="col-lg-6 m-0 p-0 black-column" data-aos="fade-left">
-          <div class="photo">
-            <app-edit-pannel [ngStyle] = "{'position': 'absolute'}" title="Change Photo">
-              <app-modal [title]="'Edit CatchPhrase'" #modal>
-                <form #form action="" method="post">
-                  <input
-                    [ngStyle]="{ width: '100%' }"
-                    name="catchPhrase"
-                    type="text"
-                    required
-                  />
-                  <button
-                    [ngStyle]="{ width: '100%', 'margin-top': '1rem' }"
-                    type="submit"
-                    class="btn btn-outline-dark btn-floating"
-                  >
-                    Accept
-                  </button>
-                </form>
-              </app-modal>
-            </app-edit-pannel>
-            <img
-              id="profile-pic"
-              [src]="data?.about.img"
-              alt="Gabriel Alejandro Maglia"
+
+        <app-modal [title]="'Change Photo'" #modal>
+          <form #form action="" method="post">
+            <input
+              [ngStyle]="{ width: '100%' }"
+              name="catchPhrase"
+              type="text"
+              required
             />
-          </div>
-  
-          <div id="description">
-            <div class="lDescription">
-              <p *ngFor="let phrases of lDescription">{{ phrases }}</p>
+            <button
+              [ngStyle]="{ width: '100%', 'margin-top': '1rem' }"
+              type="submit"
+              class="btn btn-outline-dark btn-floating"
+            >
+              Accept
+            </button>
+          </form>
+        </app-modal>
+
+        <img
+          id="profile-pic"
+          [src]="data?.about.img"
+          alt="Gabriel Alejandro Maglia"
+        />
+      </div>
+
+      <div id="description">
+        <div class="lDescription">
+          <p *ngFor="let phrases of lDescription">{{ phrases }}</p>
+        </div>
+
+        <div *ngIf="isLog" class="position-absolute editPannel">
+          <button
+            (click)="modal2.openModal()"
+            class="btn btn-outline-light btn-floating mx-1"
+          >
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button class="btn btn-floating btn-outline-light mx-1">
+            <i class="fa-solid fa-delete-left"></i>
+          </button>
+        </div>
+
+        <app-modal [title]="'Edit Phrases'" #modal2>
+          <form #form action="" method="post">
+            <input
+              [ngStyle]="{ width: '100%' }"
+              name="catchPhrase1"
+              type="text"
+              required
+            />
+            <input
+              [ngStyle]="{ width: '100%' }"
+              name="catchPhrase2"
+              type="text"
+              required
+            />
+            <input
+              [ngStyle]="{ width: '100%' }"
+              name="catchPhrase3"
+              type="text"
+              required
+            />
+            <button
+              [ngStyle]="{ width: '100%', 'margin-top': '1rem' }"
+              type="submit"
+              class="btn btn-outline-dark btn-floating"
+            >
+              Accept
+            </button>
+          </form>
+        </app-modal>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" id="skills-container">
+    <div class="col-lg-6 m-0 p-0 black-column">
+      <div class="row cont">
+        <div id="soft-skills" class="col-12">
+          <figure *ngFor="let skill of softSkills" class="hex-icon">
+            <div class="hex">
+              <img class="soft-skills-icons" [src]="skill?.img" alt="" />
             </div>
-            
-            <app-edit-pannel title="Edit Phrases"></app-edit-pannel>
-          </div>
+            <figcaption class="mt-3">{{ skill.name }}</figcaption>
+           
+            <div *ngIf="isLog" class="editPannel">
+              <button
+                (click)="modalSkill.openModal()"
+                class="btn btn-outline-light btn-floating mx-1"
+              >
+                <i class="fa-solid fa-pen-to-square"></i>
+              </button>
+              <button class="btn btn-floating btn-outline-light mx-1">
+                <i class="fa-solid fa-delete-left"></i>
+              </button>
+            </div>
+    
+            <app-modal [title]="'Edit Skill'" #modalSkill>
+              <form #form action="" method="post">
+                <input
+                  [ngStyle]="{ width: '100%' }"
+                  name=" name"
+                  type="text"
+                  required
+                />
+                <button
+                  [ngStyle]="{ width: '100%', 'margin-top': '1rem' }"
+                  type="submit"
+                  class="btn btn-outline-dark btn-floating"
+                >
+                  Accept
+                </button>
+              </form>
+            </app-modal>
+          </figure>
         </div>
       </div>
-  
-      <div class="row" id="skills-container">
-        <div class="col-lg-6 m-0 p-0 black-column">
-          <div class="row cont">
-            <div id="soft-skills" class="col-12">
-              <figure *ngFor="let skill of softSkills" class="hex-icon">
-                
-                <div class="hex">
-                  <img class="soft-skills-icons" [src]="skill?.img" alt="" />
-                </div>
-                <figcaption class="mt-3">{{ skill.name }}</figcaption>
-                 <app-edit-pannel></app-edit-pannel>
-              </figure>
-            </div>
-          </div>
-  
-          <div class="row cont">
-            <div class="col-12" id="languages-box">
-              <figure *ngFor="let skill of hardSkills">
-                <img class="img-lang" [src]="skill.img" alt="HTML" />
-                <figcaption>{{ skill.name }}</figcaption>               
-                <app-edit-pannel></app-edit-pannel>
-              </figure>
-            </div>
-          </div>
-        </div>
-  
-        <div class="col-lg-6 m-0 p-0 white-column">
-          <h2 class="hover-underline-animation-dark title">
-            Soft And Hard Skills
-          </h2>
+
+      <div class="row cont">
+        <div class="col-12" id="languages-box">
+          <figure *ngFor="let skill of hardSkills">
+            <img class="img-lang" [src]="skill.img" alt="HTML" />
+            <figcaption>{{ skill.name }}</figcaption>
+            <app-edit-pannel></app-edit-pannel>
+          </figure>
         </div>
       </div>
-  </section>
-  
+    </div>
+
+    <div class="col-lg-6 m-0 p-0 white-column">
+      <h2 class="hover-underline-animation-dark title">Soft And Hard Skills</h2>
+    </div>
+  </div>
+</section>

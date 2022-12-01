@@ -15,7 +15,7 @@ export class AboutMeComponent implements OnInit {
   softSkills?: [any]
   hardSkills?: [any]
   lDescription?:string
-  islog = this.authService.islog();
+  isLog = this.authService.islog();
   
   constructor(private getDataServices: DataRecoverService, private authService: AuthService) { }
   

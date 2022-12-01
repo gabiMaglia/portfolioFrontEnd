@@ -1,0 +1,9 @@
+.logo-wraper{
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--boostrapBlack);
+}
+img{
+    filter: invert(200%);
+    height: 2rem;
+}

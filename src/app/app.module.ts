@@ -24,6 +24,7 @@ import { ModalComponent } from './components/common/modal/modal.component';
 import { ArgProgLogoComponent } from './components/common/arg-prog-logo/arg-prog-logo.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +43,7 @@ import { ArgProgLogoComponent } from './components/common/arg-prog-logo/arg-prog
     AddBtnComponent,
     ModalComponent,
     ArgProgLogoComponent,
+   
   ],
   imports: [
     FormsModule,

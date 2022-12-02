@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth-service.service';
+import { Title } from '@angular/platform-browser';
+import { DataRecoverService } from 'src/app/services/data-recover.service';
 
 @Component({
   selector: 'app-home',
@@ -7,13 +8,19 @@ import { AuthService } from 'src/app/services/auth-service.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  title: string = ""
   constructor(
-    private authService: AuthService
-  ) { }
-
-  ngOnInit(): void {
-    console.log(this.authService.islog())
+    private getData: DataRecoverService,
+    private titleService: Title
+    ) { 
+    
   }
-
+  
+  
+  ngOnInit(): void {
+    this.getData.getData().subscribe( data=> {
+      this.title = data.name 
+      this.titleService.setTitle(this.title)
+  });
+  }
 }

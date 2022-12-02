@@ -59,6 +59,7 @@
   #skills-container .white-column{
     background-color: white;
     display: none;
+    
 
     
   }
@@ -75,7 +76,7 @@
     grid-template-columns: 1fr 1fr ;
     text-align: center;
     box-shadow: 0 10px 30px -15px var(--shadow);
-
+    
   }
   
   .hex-icon {
@@ -83,9 +84,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.hex {
+  }
+  .hex-icon::before{
+    content: '';
+    box-shadow: 20px -16px wheat;
+  }
+  
+  .hex {
     display: flex;
     align-items: center;
     justify-content: center;

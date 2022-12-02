@@ -22,6 +22,7 @@ import { EditPannelComponent } from './components/edit-pannel/edit-pannel.compon
 import { AddBtnComponent } from './components/common/add-btn/add-btn.component';
 import { ModalComponent } from './components/common/modal/modal.component';
 import { ArgProgLogoComponent } from './components/common/arg-prog-logo/arg-prog-logo.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 
@@ -43,7 +44,6 @@ import { ArgProgLogoComponent } from './components/common/arg-prog-logo/arg-prog
     AddBtnComponent,
     ModalComponent,
     ArgProgLogoComponent,
-   
   ],
   imports: [
     FormsModule,
@@ -51,7 +51,8 @@ import { ArgProgLogoComponent } from './components/common/arg-prog-logo/arg-prog
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

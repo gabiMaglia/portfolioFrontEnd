@@ -29,12 +29,12 @@
             {"name": "Critical Perspective" , "img" : "assets/img/softSkills/criticalPerspective.png"}    
         ],
         "hard" : [
-             {"name": "HTML" ,                 "img" : "assets/img/lenguages/html.png"}, 
-             {"name": "CSS" ,                  "img" : "assets/img/lenguages/css.png"}, 
-             {"name": "Javascript" ,           "img" : "assets/img/lenguages/index.png"}, 
-             {"name": "React Js." ,            "img" : "assets/img/lenguages/reactjs.png"}, 
-             {"name": "Node Js." ,             "img" : "assets/img/lenguages/nodejs.png"}, 
-             {"name": "Express Js." ,          "img" : "assets/img/lenguages/expressjs.png"}
+             {"name": "HTML" ,                 "img" : "assets/img/lenguages/html.png", "percent" : "70"},  
+             {"name": "CSS" ,                  "img" : "assets/img/lenguages/css.png", "percent" : "40" }, 
+             {"name": "Javascript" ,           "img" : "assets/img/lenguages/index.png", "percent" : "35"}, 
+             {"name": "React Js." ,            "img" : "assets/img/lenguages/reactjs.png", "percent" : "20"}, 
+             {"name": "Node Js." ,             "img" : "assets/img/lenguages/nodejs.png", "percent" : "20" }, 
+             {"name": "Express Js." ,          "img" : "assets/img/lenguages/expressjs.png", "percent" : "20"}
         ]
     },
 

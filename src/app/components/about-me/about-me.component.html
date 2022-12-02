@@ -143,6 +143,7 @@
           <figure *ngFor="let skill of hardSkills">
             <img class="img-lang" [src]="skill.img" alt="HTML" />
             <figcaption>{{ skill.name }}</figcaption>
+            <mat-progress-bar class="mt-2" mode="determinate" value={{skill.percent}}></mat-progress-bar>
             <app-edit-pannel></app-edit-pannel>
           </figure>
         </div>

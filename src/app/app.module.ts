@@ -17,7 +17,7 @@ import { WorkCardComponent } from './components/work-card/work-card.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditPannelComponent } from './components/edit-pannel/edit-pannel.component';
 import { AddBtnComponent } from './components/common/add-btn/add-btn.component';
 import { ModalComponent } from './components/common/modal/modal.component';
@@ -47,6 +47,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
   ],
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,

@@ -1,10 +1,18 @@
 <div id="warp">
-      <form  action="post" id="formu">
+      <form [formGroup]="form" action="post" id="formu">
             <div class="admin">
                       <div class="rota">
                             <h1>ADM</h1>
-                            <input [(ngModel)]="user.username" id="username" class="form-control" type="text" name="name" value="" placeholder="Username"/><br />
-                            <input [(ngModel)]='user.pass' id="password" class="form-control" type="password" name="pass" value="" placeholder="Password"/>
+                            <input formControlName="email" id="username" class="form-control" type="text" name="name" value="" placeholder="Email"/><br />
+                            <div *ngIf="Email?.errors && Email?.touched">
+                              <p  *ngIf="Email?.hasError('required')" class="text-danger text-sm-center">
+                                    El Email es Requerido
+                              </p>
+                              <p *ngIf="Email?.hasError('email')" class="text-danger">
+                                    El Email esta mal escrito
+                              </p>
+                            </div>
+                            <input formControlName="password" id="password" class="form-control" type="password" name="pass" value="" placeholder="Password"/>
                       </div>
                 </div>
                 <div class="cms">

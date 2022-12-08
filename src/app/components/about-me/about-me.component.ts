@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Persona } from 'src/app/model/persona.model';
 import { AuthService } from 'src/app/services/auth-service.service';
 import { DataRecoverService } from 'src/app/services/data-recover.service';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { PersonaService } from 'src/app/services/persona.service';
+
 
 @Component({
   selector: 'app-about-me',
@@ -9,7 +11,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
   styleUrls: ['./about-me.component.css']
 })
 export class AboutMeComponent implements OnInit {
-  
+  persona:Persona = new Persona('','','','','','');
   
   data:any
   softSkills?: [any]
@@ -17,9 +19,15 @@ export class AboutMeComponent implements OnInit {
   lDescription?:string
   isLog = this.authService.islog();
   
-  constructor(private getDataServices: DataRecoverService, private authService: AuthService) { }
+  constructor(private getDataServices: DataRecoverService, private authService: AuthService, public personaService:PersonaService) { }
   
   ngOnInit(): void {
+    this.personaService.getPersona().subscribe((data: Persona) => {
+      this.persona = data
+    //  console.log(this.persona)
+    })
+
+
     this.getDataServices.getData().subscribe( data => {
       this.data = data
       this.lDescription = data.about.litleDescription

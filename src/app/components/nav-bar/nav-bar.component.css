@@ -1,7 +1,21 @@
+.editBtn{
+    top: 4.7rem;
+    left: 1rem;
+    z-index: -1;
+    position: absolute;
+  
+}
+
+
 @media (max-width : 991px) {
     #navBarMenu {
         text-align: center;
         
+        
+    }
+    .editBtn{
+        top: 3.5rem;
+       
     }
     .socialm{
         margin-bottom: 1rem;

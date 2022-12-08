@@ -129,3 +129,9 @@ input:focus{background: gray;color: white}
   top:-100px;
   left:60px;
 }
+p{
+  position: absolute;
+  bottom: 4.0625rem;
+  left: 5.3125rem;
+  font-size: 10px;
+}

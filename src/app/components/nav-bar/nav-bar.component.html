@@ -3,7 +3,15 @@
   class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top navbar-scroll"
 >
   <div class="container-fluid nav-cont">
-    <h1 class="navbar-brand m-0">{{ data?.name }}</h1>
+    <h1 class="navbar-brand m-0 banner">{{ persona}}</h1>
+    <div *ngIf="islog" class="editBtn">
+      <button
+        (click)="modal.openModal()"
+        class="btn btn-outline-dark btn-floating"
+      >
+        Edit Profile
+      </button>
+    </div>
     <button
       class="navbar-toggler"
       type="button"
@@ -91,6 +99,64 @@
         </li>
       </ul>
     </div>
-   
   </div>
 </nav>
+
+<app-modal [title]="'Edit Profile'" #modal>
+  <form #form action="" method="post">
+    <label for="name">Name</label>
+    <input
+      [ngStyle]="{ width: '100%' }"
+      name="name_persona"
+      type="text"
+      placeholder=""
+      required
+    />
+    <label for="surname">Surname</label>
+    <input
+      [ngStyle]="{ width: '100%' }"
+      name="surname_persona"
+      type="text"
+      placeholder=""
+      required
+    />
+    <label for="dni_persona">DNI</label>
+    <input
+      [ngStyle]="{ width: '100%' }"
+      name="dni_persona"
+      type="text"
+      placeholder=""
+      required
+    />
+    <label for="telephone_persona">Telephone</label>
+    <input
+      [ngStyle]="{ width: '100%' }"
+      name="telephone_persona"
+      type="text"
+      placeholder=""
+      required
+    />
+    <label for="Photo">Photo</label>
+    <input
+      [ngStyle]="{ width: '100%' }"
+      name="photo_url"
+      type="file"
+      required
+    />
+    <label for="catchPhrase">Phrase</label>
+    <input
+      [ngStyle]="{ width: '100%' }"
+      name="catchPhrase"
+      type="text"
+      placeholder=""
+      required
+    />
+    <button
+      [ngStyle]="{ width: '100%', 'margin-top': '1rem' }"
+      type="submit"
+      class="btn btn-outline-dark btn-floating"
+    >
+      Accept
+    </button>
+  </form>
+</app-modal>

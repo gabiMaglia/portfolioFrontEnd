@@ -1,25 +1,43 @@
-<div id="warp">
-      <form [formGroup]="form" action="post" id="formu">
-            <div class="admin">
-                      <div class="rota">
-                            <h1>ADM</h1>
-                            <input formControlName="email" id="username" class="form-control" type="text" name="name" value="" placeholder="Email"/><br />
-                            <div *ngIf="Email?.errors && Email?.touched">
-                              <p  *ngIf="Email?.hasError('required')" class="text-danger text-sm-center">
-                                    El Email es Requerido
-                              </p>
-                              <p *ngIf="Email?.hasError('email')" class="text-danger">
-                                    El Email esta mal escrito
-                              </p>
-                            </div>
-                            <input formControlName="password" id="password" class="form-control" type="password" name="pass" value="" placeholder="Password"/>
-                      </div>
-                </div>
-                <div class="cms">
-                      <div class="roti">
-                            <h1>LOG</h1>
-                            <button id="valid" type="button" name="valid" (click)="login()">Ingresar</button><br/>                
-          </div>
-                </div>
-          </form>
-    </div>
+<div class="logBar bg-dark">
+      <li class="nav-link me-3">
+            <a class="btn btn-outline-light btn-floating mx-1" href="/home">
+                  <i class="fa-solid fa-right-from-bracket"></i>
+            </a>
+      </li>
+</div>
+<div id="cont">
+  <h1 class="text-center mt-5 mb-5">Log in</h1>
+  <form [formGroup]="form" action="post" class="form">
+      <input
+        formControlName="email"
+        id="username"
+        class="form-control"
+        type="text"
+        name="name"
+        value=""
+        placeholder="Email"
+      /><br />
+      <div *ngIf="Email?.errors && Email?.touched">
+        <p
+          *ngIf="Email?.hasError('required')"
+          class="text-danger fw-bold"
+        >
+          El Email es Requerido
+        </p>
+        <p *ngIf="Email?.hasError('email')" class="text-danger fw-bold">
+          El Email esta mal escrito
+        </p>
+      </div>
+      <input
+        formControlName="password"
+        id="password"
+        class="form-control"
+        type="password"
+        name="pass"
+        value=""
+        placeholder="Password"
+      />
+      <button class="submit btn btn-outline-dark btn-floating mt-3" id="valid" type="submit" (click)="login($event)">Ingresar</button><br />
+  </form>
+</div>
+<div class="footer bg-dark"></div>

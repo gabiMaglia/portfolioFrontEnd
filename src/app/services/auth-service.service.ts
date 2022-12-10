@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 
@@ -9,24 +9,29 @@ import { map } from 'rxjs/operators';
 })
 export class AuthService {
   
-  private api = 'http://localhost:3000';
+  private url = 'http://localhost:3000';
+  currentUserSubject: BehaviorSubject<any>
   token: any; 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    console.log("gooooooo")
+    this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(sessionStorage.getItem('currentUser') || '{}'))
+  }
 
 
-  singin(user:any) {
-    return this.http.post(`${this.api}/user/singin`, user)
+  singin(credentials: any): Observable<any> {
+    return this.http.post(this.url, credentials).pipe(map(data=>{
+      sessionStorage.setItem('currentUser', JSON.stringify(data))
+      return data
+    }))
   }
     
   
 
-  logout() {
-    localStorage.removeItem('token')
-  }
+
   
   public islog(): Boolean {
-    return false;
+    return true;
     // return (localStorage.getItem('token') !== null)
   }
 }

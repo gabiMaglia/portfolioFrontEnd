@@ -22,9 +22,8 @@ export class AboutMeComponent implements OnInit {
   constructor(private getDataServices: DataRecoverService, private authService: AuthService, public personaService:PersonaService) { }
   
   ngOnInit(): void {
-    this.personaService.getPersona().subscribe((data: Persona) => {
-      this.persona = data
-    //  console.log(this.persona)
+    this.personaService.getPersona().subscribe((data) => {
+      this.persona = data[0]
     })
 
 

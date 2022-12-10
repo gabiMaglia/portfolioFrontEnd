@@ -16,6 +16,10 @@ export class Persona {
         this.telephone_persona = telephone;
         this.photo_url = img;
         this.catch_phrase = catch_phrase
-    }
 
+    }
+    
+
+
+    
 }

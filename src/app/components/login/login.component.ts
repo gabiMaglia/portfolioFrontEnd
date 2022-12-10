@@ -39,11 +39,11 @@ export class LoginComponent implements OnInit {
     return this.form.get('password')
   }
 
-  login(): void {
-    this.authService.singin(this.user).subscribe((res: any) => {
-      console.log(res.token);
-      localStorage.setItem('token', res.token);
-      this.router.navigate(['home']);
-    });
+  login(event:Event){
+    event.preventDefault;
+    this.authService.singin(this.form.value).subscribe(data=>{
+      console.log('DATA'+ JSON.stringify(data))
+      this.router.navigate(['/home'])
+    })
   }
 }

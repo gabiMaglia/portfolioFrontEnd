@@ -11,7 +11,7 @@ import { PersonaService } from 'src/app/services/persona.service';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  persona: Persona = new Persona("","","","",""," ");
+  persona: Persona = new Persona("","","","","","");
 
   data: any
   islog = this.authService.islog();
@@ -23,9 +23,9 @@ export class NavBarComponent implements OnInit {
     private authService: AuthService
     ) {  }
 
-    logout(): void {
-      this.authService.logout()
-    }
+    // logout(): void {
+    //   this.authService.logout()
+    // }
 
    ngOnInit(): void {
     this.getData.getData().subscribe( data=> {
@@ -34,9 +34,7 @@ export class NavBarComponent implements OnInit {
     });
 
     this.personaService.getPersona().subscribe((data) => {
-      this.persona = data
-      
-      console.log(this.persona.catch_phrase)
+      this.persona = data[0]
     })
 
 

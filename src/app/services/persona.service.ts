@@ -11,8 +11,8 @@ export class PersonaService {
   URL = 'http://localhost:8080/persona';
   constructor(private httpClient: HttpClient) { }
 
-  public getPersona(): Observable<Persona>{
-    return this.httpClient.get<Persona>(`${this.URL}/traer/perfil`)  
+  public getPersona(): Observable<Persona[]>{
+    return this.httpClient.get<Persona[]>(`${this.URL}/traer/perfil`)  
   }
 
 }

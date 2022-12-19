@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth-service.service';
 import { DataRecoverService } from 'src/app/services/data-recover.service';
+import { ExperienceService } from 'src/app/services/experience.service';
 
 
 @Component({
@@ -14,15 +15,15 @@ export class ExperienceComponent implements OnInit {
   hide?:Boolean = false
   isLog = this.authService.islog();
 
-  constructor(private getDataService: DataRecoverService, private authService: AuthService) { }
+  constructor(private getExpService: ExperienceService, private authService: AuthService) { }
 
   unfold(): void {
     this.hide = !!!this.hide
   }
   
   ngOnInit(): void {
-    this.getDataService.getData().subscribe( data => {
-      this.jobs = data.experience
+    this.getExpService.getExp().subscribe( data => {
+      this.jobs = data
     })
   }
 

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import Persona from 'src/app/model/persona.model';
+import  SocialM  from 'src/app/model/socialM.model';
 import { DataRecoverService } from 'src/app/services/data-recover.service';
+import { PersonaService } from 'src/app/services/persona.service';
+import { SocialService } from 'src/app/services/social.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,14 +11,26 @@ import { DataRecoverService } from 'src/app/services/data-recover.service';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
+  socialM: SocialM = new SocialM(0,"","","","","")
+  persona: Persona = new Persona(0,'','','','','','','','','')
+
   data:any
-  constructor(private getDataService:DataRecoverService) { }
+  constructor(
+    private getPersonaService:PersonaService,
+              private  socialMService: SocialService) { }
 
   ngOnInit(): void {
-    this.getDataService.getData().subscribe( data=> {
-      this.data = data  
-    
+    this.getPersonaService.getPersona().subscribe((data)=> {
+      this.persona = data[0] 
+      
+        
+        this.socialMService.getSocialM().subscribe((data) => {
+          this.socialM = data[0]
+          
+        })
     })
+
   }
+
 
 }

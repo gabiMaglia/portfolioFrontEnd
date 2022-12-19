@@ -2,8 +2,9 @@ import {
   Component,
   OnInit,
 } from '@angular/core';
+import  Persona  from 'src/app/model/persona.model';
 import { AuthService } from 'src/app/services/auth-service.service';
-import { DataRecoverService } from 'src/app/services/data-recover.service';
+import { PersonaService } from 'src/app/services/persona.service';
 
 @Component({
   selector: 'app-front-page',
@@ -11,17 +12,20 @@ import { DataRecoverService } from 'src/app/services/data-recover.service';
   styleUrls: ['./front-page.component.css'],
 })
 export class FrontPageComponent implements OnInit {
+  persona: Persona = new Persona(0,"","","","","","","","", "");
   isLog = this.autService.islog();
   catchPhrase?: String;
 
   constructor(
-    private getDataServices: DataRecoverService,
-    private autService: AuthService
+   
+    private autService: AuthService,
+    private getPersona: PersonaService
   ) { }
 
   ngOnInit(): void {
-    this.getDataServices.getData().subscribe((data) => {
-      this.catchPhrase = data.frontPhrase;
+    this.getPersona.getPersona().subscribe((data) => {
+      this.catchPhrase = data[0].main_phrase
+      
     });
   }
 }

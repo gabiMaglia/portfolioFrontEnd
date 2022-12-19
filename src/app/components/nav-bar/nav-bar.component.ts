@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Persona } from 'src/app/model/persona.model';
+import  Persona  from 'src/app/model/persona.model';
+import  SocialM  from 'src/app/model/socialM.model';
 import { AuthService } from 'src/app/services/auth-service.service';
-import { DataRecoverService } from 'src/app/services/data-recover.service';
 import { PersonaService } from 'src/app/services/persona.service';
+import { SocialService } from 'src/app/services/social.service';
 
 
 @Component({
@@ -11,7 +12,8 @@ import { PersonaService } from 'src/app/services/persona.service';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  persona: Persona = new Persona("","","","","","");
+  persona: Persona = new Persona(0,"","","","","","","","","");
+  socialM: SocialM = new SocialM(0,"","","","","");
 
   data: any
   islog = this.authService.islog();
@@ -19,26 +21,26 @@ export class NavBarComponent implements OnInit {
 
   constructor(
     private personaService:PersonaService,
-    private getData: DataRecoverService,
-    private authService: AuthService
+    private authService: AuthService,
+    private socialMService: SocialService
     ) {  }
-
-    // logout(): void {
-    //   this.authService.logout()
-    // }
-
-   ngOnInit(): void {
-    this.getData.getData().subscribe( data=> {
-      this.data = data 
     
-    });
-
-    this.personaService.getPersona().subscribe((data) => {
-      this.persona = data[0]
+    ngOnInit(): void {
+      
+      this.personaService.getPersona().subscribe((data) => {
+        this.persona = data[0]
+       
     })
-
-
-
+    this.socialMService.getSocialM().subscribe((data) => {
+      this.socialM = data[0]
+    })
+    
+    
+    
   }
-
+  
+  logout(): void {
+    this.authService.logOut()
+  }
+  
 }

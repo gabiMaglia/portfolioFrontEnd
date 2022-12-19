@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutMeComponent } from './components/about-me/about-me.component';
-import { SeparatorComponent } from './components/separator/separator.component';
+import { SeparatorComponent } from './components/common/separator/separator.component';
 import { StudiesComponent } from './components/studies/studies.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -23,6 +23,7 @@ import { AddBtnComponent } from './components/common/add-btn/add-btn.component';
 import { ModalComponent } from './components/common/modal/modal.component';
 import { ArgProgLogoComponent } from './components/common/arg-prog-logo/arg-prog-logo.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { ResumeComponent } from './components/common/resume/resume.component';
 
 
 
@@ -44,6 +45,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     AddBtnComponent,
     ModalComponent,
     ArgProgLogoComponent,
+    ResumeComponent,
   ],
   imports: [
     FormsModule,

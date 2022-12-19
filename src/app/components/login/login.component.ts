@@ -9,10 +9,6 @@ import { AuthService } from 'src/app/services/auth-service.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  user = {
-    username: 'root',
-    pass: 'root',
-  };
 
   form: FormGroup;
 
@@ -21,10 +17,12 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router
   ) {
+
     this.form = this.formBuilder.group({
       email: ['' ,[Validators.required, Validators.email]],
       password:['' ,[Validators.required, Validators.minLength(8)]]
     });
+
   }
 
   ngOnInit(): void {
@@ -39,9 +37,9 @@ export class LoginComponent implements OnInit {
     return this.form.get('password')
   }
 
-  login(event:Event){
+  logIn(event:Event){
     event.preventDefault;
-    this.authService.singin(this.form.value).subscribe(data=>{
+    this.authService.logIn(this.form.value).subscribe(data=>{
       console.log('DATA'+ JSON.stringify(data))
       this.router.navigate(['/home'])
     })

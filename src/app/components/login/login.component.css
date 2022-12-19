@@ -13,8 +13,9 @@ input, form, p, h1{
 }
 
 .form{
+  padding-inline: 12px ;
   margin-inline: auto;
-  width: 600px;
+  max-width: 600px;
 }
 .submit{
   width: 100%;

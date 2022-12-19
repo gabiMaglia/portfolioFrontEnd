@@ -39,14 +39,14 @@
 
         <img
           id="profile-pic"
-          [src]="data?.about.img"
+          [src]="persona.photo_url"
           alt="Gabriel Alejandro Maglia"
         />
       </div>
 
       <div id="description">
         <div class="lDescription">
-          <p *ngFor="let phrases of lDescription">{{ phrases }}</p>
+          <p *ngFor="let phrases of phraseArr">{{ phrases }}</p>
         </div>
 
         <div *ngIf="isLog" class="position-absolute editPannel">
@@ -101,7 +101,7 @@
           <!-- Skill -->
           <figure *ngFor="let skill of softSkills" class="hex-icon">
             <div class="hex">
-              <img class="soft-skills-icons" [src]="skill?.img" alt="" />
+              <img class="soft-skills-icons" [src]="skill.img_skill" alt="" />
             </div>
             <figcaption class="mt-3">{{ skill.name }}</figcaption>
            
@@ -141,9 +141,9 @@
       <div class="row cont">
         <div class="col-12" id="languages-box">
           <figure *ngFor="let skill of hardSkills">
-            <img class="img-lang" [src]="skill.img" alt="HTML" />
+            <img class="img-lang" [src]="skill.img_skill" alt="HTML" />
             <figcaption>{{ skill.name }}</figcaption>
-            <mat-progress-bar class="mt-2" mode="determinate" value={{skill.percent}}></mat-progress-bar>
+            <mat-progress-bar class="mt-2" mode="determinate" value={{skill.amount}}></mat-progress-bar>
             <app-edit-pannel></app-edit-pannel>
           </figure>
         </div>

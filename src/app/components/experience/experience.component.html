@@ -22,18 +22,18 @@
         class="row mx-1 py-3 d-flex rounded-top rounded-bottom bg-none border exp-cont"
       >
       <div class="col-10 d-flex flex-column justify-content-center data-cont">
-          <h4>{{ job.institution }}</h4>
-          <h5>{{ job.title }}</h5>
-          <h6>{{ job.date }}</h6>
+          <h4>{{ job.institution_exp }}</h4>
+          <h5>{{ job.title_exp }}</h5>
+          <h6>{{ job.startDate_exp}} {{ job.endDate_exp}} </h6>
           <p class="description">
-              {{ job.description }}
+              {{ job.description_exp }}
             </p>
         </div>
         
         <div class="col-2 img-job-cont">
             <img
             class="img-thumbnail"
-            src="assets/img/experience/gb.png"
+            src={{job.img_exp}}
             alt="Municipalidad de Granadero Baigorria"
             />
         </div>

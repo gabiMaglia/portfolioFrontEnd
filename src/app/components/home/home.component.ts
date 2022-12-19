@@ -8,6 +8,7 @@ import { DataRecoverService } from 'src/app/services/data-recover.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+ 
   title: string = ""
   constructor(
     private getData: DataRecoverService,
@@ -24,3 +25,5 @@ export class HomeComponent implements OnInit {
   });
   }
 }
+
+

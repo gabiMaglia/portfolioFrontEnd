@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Persona from 'src/app/model/persona.model';
 import  SocialM  from 'src/app/model/socialM.model';
-import { DataRecoverService } from 'src/app/services/data-recover.service';
 import { PersonaService } from 'src/app/services/persona.service';
 import { SocialService } from 'src/app/services/social.service';
 

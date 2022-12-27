@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import  Persona  from 'src/app/model/persona.model';
 import Skills from 'src/app/model/skills.model';
 import { AuthService } from 'src/app/services/auth-service.service';
-import { DataRecoverService } from 'src/app/services/data-recover.service';
 import { PersonaService } from 'src/app/services/persona.service';
 import { SkillsService } from 'src/app/services/skills.service';
 
@@ -16,7 +15,7 @@ export class AboutMeComponent implements OnInit {
   persona:Persona = new Persona(0,'','','','','','','','','');
   
 
-  data:any
+  data?:Skills[]
   phraseArr?:String[]  
 
   softSkills?: Skills[]

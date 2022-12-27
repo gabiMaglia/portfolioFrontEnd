@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 import Skills from '../model/skills.model';
 
@@ -11,10 +12,10 @@ import Skills from '../model/skills.model';
 
 export class SkillsService {
 
-  URL = 'http://localhost:8080/skill';
+  URL = environment.server;
   constructor(private httpClient: HttpClient) { }
 
   public getSkills(): Observable<Skills[]>{
-    return this.httpClient.get<Skills[]>(`${this.URL}/traer`)  
+    return this.httpClient.get<Skills[]>(`${this.URL}/get/skill`)  
   }
 }

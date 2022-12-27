@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth-service.service';
-import { DataRecoverService } from 'src/app/services/data-recover.service';
 import { ExperienceService } from 'src/app/services/experience.service';
 
 

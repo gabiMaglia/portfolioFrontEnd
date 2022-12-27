@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 import  SocialM  from '../model/socialM.model';
 
@@ -8,10 +9,10 @@ import  SocialM  from '../model/socialM.model';
   providedIn: 'root'
 })
 export class SocialService {
-  URL = 'http://localhost:8080/social';
+  URL = environment.server;
   constructor(private httpClient: HttpClient) { }
 
   public getSocialM(): Observable<SocialM[]>{
-    return this.httpClient.get<SocialM[]>(`${this.URL}/traer`)  
+    return this.httpClient.get<SocialM[]>(`${this.URL}/get/social`)  
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth-service.service';
+
 
 @Component({
   selector: 'app-portfolio',
@@ -7,8 +7,8 @@ import { AuthService } from 'src/app/services/auth-service.service';
   styleUrls: ['./portfolio.component.css']
 })
 export class PortfolioComponent implements OnInit {
-  isLog = this.authService.islog();
-  constructor(private authService: AuthService) { }
+
+  constructor() { }
 
   ngOnInit(): void {
   }

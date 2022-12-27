@@ -14,17 +14,24 @@ export class EditPannelComponent implements OnInit {
   isLog = this.authService.islog();
   modal?: ModalComponent
   @Input() title: String = ""
+  @Input() id?: Number 
 
 
   @Input() schema: string = 'btn-outline-light' 
   
-  constructor(private authService: AuthService  )  { }
+  constructor(private authService: AuthService  )  { 
+    
+  }
   
   ngOnInit(): void {
   }
   
-  openModal() {
-   return ModalComponent.prototype.openModal()
-  }
+  // openModal() {
+  //  return ModalComponent.prototype.openModal()
+  // }
  
+
+  deleteItem() {
+    
+  }
 }

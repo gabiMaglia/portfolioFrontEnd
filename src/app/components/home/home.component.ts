@@ -1,29 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { DataRecoverService } from 'src/app/services/data-recover.service';
+
+import { PersonaService } from 'src/app/services/persona.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
- 
-  title: string = ""
   constructor(
-    private getData: DataRecoverService,
+    private getPersona: PersonaService,
     private titleService: Title
-    ) { 
-    
-  }
-  
-  
+  ) {}
+
   ngOnInit(): void {
-    this.getData.getData().subscribe( data=> {
-      this.title = data.name 
-      this.titleService.setTitle(this.title)
-  });
+    this.getPersona.getPersona().subscribe((data) => {
+      this.titleService.setTitle(data[0].name_persona.toString());
+    });
   }
 }
-
-

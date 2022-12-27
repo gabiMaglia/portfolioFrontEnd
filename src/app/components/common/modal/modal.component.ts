@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-modal',
@@ -7,17 +8,21 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ModalComponent implements OnInit {
   @Input() title: String = ""
-  @Input() form:any = ""
-  
+  @Input() form?:FormGroup 
+  public obj?: any
+
   modalSwitch:Boolean = false;
   
   constructor() { 
-   
+    
   }
   
   ngOnInit(): void {
+    
   }
-  openModal ():void {
+
+  openModal (obj: any):void {
+    this.obj = obj
     this.modalSwitch = true
   }
 

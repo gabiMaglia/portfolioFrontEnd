@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import Proyects from 'src/app/model/proyects.model';
 import { AuthService } from 'src/app/services/auth-service.service';
-import { DataRecoverService } from 'src/app/services/data-recover.service';
+import { ProyectsService } from 'src/app/services/proyects.service';
 
 
 
@@ -12,14 +13,18 @@ import { DataRecoverService } from 'src/app/services/data-recover.service';
 
 export class WorkCardComponent implements OnInit {
   isLog= this.authService.islog();
-  jobs?:[any]
+  jobs?:Proyects []
+  img?:String []
 
 
-  constructor(private getDataService: DataRecoverService, private authService: AuthService) { }
+  constructor(private getProyectService: ProyectsService, private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.getDataService.getData().subscribe( data => {
-      this.jobs = data.works
+    this.getProyectService.getProyects().subscribe( data => {
+      this.jobs = data
+      this.img = new Array
+      this.img.push(this.jobs[0].img1_pro, this.jobs[0].img2_pro, this.jobs[0].img3_pro)
+      console.log(this.img)
     })
   }
 

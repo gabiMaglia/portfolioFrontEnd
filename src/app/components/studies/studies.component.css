@@ -69,6 +69,25 @@
     margin-left: -30000px
   }
 
+  i{
+    font-size: 1em;
+}
+
+.editPannel {
+    display: flex;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    font-size: 3em;
+    justify-content: flex-end;
+  }
+
+
+  /* agregado */
+
+  #addBtn{
+    margin-bottom: 1rem;
+    width: 10rem;
+  }
 
   @media (max-width: 1030px) {
     app-edit-pannel{

@@ -9,7 +9,7 @@
       <div class="photo">
         <div *ngIf="isLog" class="position-absolute editPannel">
           <button
-            (click)="modal.openModal()"
+            (click)="modal.openModal(persona)"
             class="btn btn-outline-light btn-floating mx-1"
           >
             <i class="fa-solid fa-pen-to-square"></i>
@@ -51,7 +51,7 @@
 
         <div *ngIf="isLog" class="position-absolute editPannel">
           <button
-            (click)="modal2.openModal()"
+            (click)="modal2.openModal(persona)"
             class="btn btn-outline-light btn-floating mx-1"
           >
             <i class="fa-solid fa-pen-to-square"></i>
@@ -107,7 +107,7 @@
            
             <div *ngIf="isLog" class="editPannel">
               <button
-                (click)="modalSkill.openModal()"
+                (click)="modalSkill.openModal(skill)"
                 class="btn btn-outline-light btn-floating mx-1"
               >
                 <i class="fa-solid fa-pen-to-square"></i>

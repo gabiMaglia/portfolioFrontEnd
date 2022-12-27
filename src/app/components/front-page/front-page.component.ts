@@ -17,7 +17,6 @@ export class FrontPageComponent implements OnInit {
   catchPhrase?: String;
 
   constructor(
-   
     private autService: AuthService,
     private getPersona: PersonaService
   ) { }

@@ -13,6 +13,7 @@ export class FooterComponent implements OnInit {
   socialM: SocialM = new SocialM(0,"","","","","")
   persona: Persona = new Persona(0,'','','','','','','','','')
 
+
   data:any
   constructor(
     private getPersonaService:PersonaService,

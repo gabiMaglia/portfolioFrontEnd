@@ -46,7 +46,7 @@
 
       <div id="description">
         <div class="lDescription">
-          <p *ngFor="let phrases of phraseArr">{{ phrases }}</p>
+          <p *ngFor="let phrases of phraseArr; trackBy: trackByMethod ">{{ phrases }}</p>
         </div>
 
         <div *ngIf="isLog" class="position-absolute editPannel">
@@ -99,7 +99,7 @@
       <div class="row cont">
         <div id="soft-skills" class="col-12">
           <!-- Skill -->
-          <figure *ngFor="let skill of softSkills" class="hex-icon">
+          <figure *ngFor="let skill of softSkills ; trackBy: trackByMethod" class="hex-icon">
             <div class="hex">
               <img class="soft-skills-icons" [src]="skill.img_skill" alt="" />
             </div>
@@ -140,7 +140,7 @@
 
       <div class="row cont">
         <div class="col-12" id="languages-box">
-          <figure *ngFor="let skill of hardSkills">
+          <figure *ngFor="let skill of hardSkills ; trackBy: trackByMethod">
             <img class="img-lang" [src]="skill.img_skill" alt="HTML" />
             <figcaption>{{ skill.name }}</figcaption>
             <mat-progress-bar class="mt-2" mode="determinate" value={{skill.amount}}></mat-progress-bar>

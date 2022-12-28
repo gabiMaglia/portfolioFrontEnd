@@ -18,4 +18,16 @@ export class SkillsService {
   public getSkills(): Observable<Skills[]>{
     return this.httpClient.get<Skills[]>(`${this.URL}/get/skill`)  
   }
+  public addSkills(skill: Skills): Observable<Skills> {
+    return this.httpClient.post<Skills>(`${this.URL}/add/skill`, skill);
+  }
+  public updateSkills(skill: Skills): Observable<Skills> {
+    return this.httpClient.put<Skills>(
+      `${this.URL}/edit/studies/${skill.id}`,
+      skill
+    );
+  }
+  public deleteSkills(id: Number): Observable<void> {
+    return this.httpClient.delete<void>(`${this.URL}/delete/skill/${id}`);
+  }
 }

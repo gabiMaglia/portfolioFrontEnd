@@ -21,6 +21,8 @@ export class StudiesComponent implements OnInit {
   public studie?: Studies;
   // Forms
   contactForm!: FormGroup;
+
+  defaultImgValue: String = "https://iili.io/HTILtsa.png" ;
   
   constructor(
     private studiesService: StudiesService,
@@ -67,7 +69,6 @@ export class StudiesComponent implements OnInit {
       next: (response: Studies) => {
         this.getStudies();
         location.reload();
-        
         alert ("Update ok"); 
       },
       error: (error: HttpErrorResponse) => {
@@ -122,6 +123,7 @@ export class StudiesComponent implements OnInit {
     startDate_st:data.startDate_st ,
     img_st: data.img_st ,
     persona_id: data.persona_id ,
-    persona_DNI_persona: data.persona_DNI_persona ,})
+    persona_DNI_persona: data.persona_DNI_persona 
+  })
   }
 }

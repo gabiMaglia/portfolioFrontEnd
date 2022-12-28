@@ -23,6 +23,7 @@ export class ModalComponent implements OnInit {
 
   openModal (obj: any):void {
     this.obj = obj
+    console.log(this.obj)
     this.modalSwitch = true
   }
 

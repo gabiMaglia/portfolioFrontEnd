@@ -16,4 +16,10 @@ export class PersonaService {
     return this.httpClient.get<Persona[]>(`${this.URL}/get/persona`)  
   }
 
+  public updatePersona(persona: Persona): Observable<Persona> {
+    return this.httpClient.put<Persona>(
+      `${this.URL}/edit/persona/${persona.id}`,
+      persona
+    );
+  }
 }

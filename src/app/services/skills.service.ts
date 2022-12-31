@@ -23,7 +23,7 @@ export class SkillsService {
   }
   public updateSkills(skill: Skills): Observable<Skills> {
     return this.httpClient.put<Skills>(
-      `${this.URL}/edit/studies/${skill.id}`,
+      `${this.URL}/edit/skill/${skill.id}`,
       skill
     );
   }

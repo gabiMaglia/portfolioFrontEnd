@@ -13,17 +13,20 @@ import { SkillsService } from 'src/app/services/skills.service';
   styleUrls: ['./about-me.component.css'],
 })
 export class AboutMeComponent implements OnInit {
-  persona: Persona = new Persona(0, '', '', '', '', '', '', '', '', '');
-  isLog = this.authService.islog();
+  isLog: Boolean = this.authService.islog();
+  defaultProfilePic: String = 'https://iili.io/HuCixdx.png'
 
-  skills?: Skills[];
+  persona: Persona = new Persona(0, '', '', '', '', '', '', '', '', '');
   phraseArr?: String[];
 
+  skills?: Skills[];
+  
   softSkills?: Skills[];
   hardSkills?: Skills[];
 
   // Forms
-  contactForm!: FormGroup;
+  contactFormSkill!: FormGroup;
+  contactFormPersona!: FormGroup;
 
   constructor(
     private authService: AuthService,
@@ -35,19 +38,45 @@ export class AboutMeComponent implements OnInit {
   ngOnInit(): void {
     this.getPersona();
     this.getSkills();
+    this.contactFormPersona = this.initFormPersona()
+    this.contactFormSkill = this.initFormSkill()
   }
 
+
+  // Persona Crud
   public getPersona(): void {
     this.personaService.getPersona().subscribe((data) => {
       this.persona = data[0];
+
+      this.phraseArrayMaker(this.persona)
+    });
+  }
+
+  public  phraseArrayMaker (persona: Persona): String[] {
+    this.persona = persona;
       this.phraseArr = [
         this.persona.phrase1,
         this.persona.phrase2,
         this.persona.phrase3,
       ];
+      return this.phraseArr
+  }
+
+  updatePersona(contactForm: FormGroup) {
+    console.log(contactForm.value)
+    this.personaService.updatePersona(contactForm.value).subscribe({
+      next: (response: Persona) => {
+        this.getPersona();
+        alert('Update ok');
+        location.reload();
+      },
+      error: (error: HttpErrorResponse) => {
+        alert(error.message);
+      },
     });
   }
 
+  // Skill Crud
   public getSkills(): void {
     this.skillService.getSkills().subscribe((skills) => {
       this.skills = skills;
@@ -56,7 +85,7 @@ export class AboutMeComponent implements OnInit {
     });
   }
 
-  public addSkills(contactForm: FormGroup) {
+  public addSkill(contactForm: FormGroup) {
     this.skillService.addSkills(contactForm.value).subscribe({
       next: (response: Skills) => {
         this.getSkills();
@@ -71,12 +100,12 @@ export class AboutMeComponent implements OnInit {
     });
   }
 
-  updateSkills(contactForm: FormGroup) {
+  updateSkill(contactForm: FormGroup) {
     this.skillService.updateSkills(contactForm.value).subscribe({
       next: (response: Skills) => {
         this.getSkills();
-        location.reload();
         alert('Update ok');
+        location.reload();
       },
       error: (error: HttpErrorResponse) => {
         alert(error.message);
@@ -84,7 +113,7 @@ export class AboutMeComponent implements OnInit {
     });
   }
 
-  public deleteSkills(id: Number): void {
+  public deleteSkill(id: Number): void {
     this.skillService.deleteSkills(id).subscribe({
       next: (response: void) => {
         this.getSkills();
@@ -120,15 +149,48 @@ export class AboutMeComponent implements OnInit {
   }
 
   onPatchValueSkill(data: any): any {
-    return this.contactForm.patchValue({
+    return this.contactFormSkill.patchValue({
       id: data.id,
       type: data.type,
       img_skill: data.img_skill,
       name: data.name,
-      amount: data.amount,
+      amount: data.amount === null? 0 : data.amount ,
+  
+    });
+  }
 
-      persona_id: data.persona_id,
-      persona_DNI_persona: data.persona_DNI_persona,
+   // formMethod Persona
+
+   initFormPersona(): FormGroup {
+    return this.fb.group({
+      id: [''],
+      name_persona: ['', Validators.required],
+      surname_persona: ['', Validators.required],
+      dni_persona: ['', Validators.required],
+      telephone_persona: [''],
+      photo_url: [''],
+      main_phrase: [''],
+      phrase1: [''],
+      phrase2: [''],
+      phrase3: [''],
+    });
+  }
+
+  onPatchValuePersona(data: any): any {
+    
+    return this.contactFormPersona.patchValue({
+      
+      id: data.id,
+      name_persona: data.name_persona,
+      surname_persona: data.surname_persona,
+      dni_persona: data.dni_persona,
+      telephone_persona: data.telephone_persona,
+      photo_url: data.photo_url,
+      main_phrase: data.main_phrase,
+      phrase1: data.phrase1,
+      phrase2: data.phrase2,
+      phrase3: data.phrase3,
     });
   }
 }
+

@@ -1,4 +1,5 @@
 #about-container {
+  
     margin: 0;
     font-family: "Montserrat", sans-serif;
   }
@@ -23,6 +24,8 @@
   }
   
   #profile-pic{
+    min-height: 40rem;
+    max-height: 43rem;
     width: 100%;
   }
   
@@ -152,4 +155,20 @@ i{
     margin-top: 1rem;
     font-size: 3em;
     
+  }
+
+  .btn-cont{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .button-add {
+   
+ 
+  
+    border-radius: 15px;
+    height: 40px;
+    width: 120px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+      0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   }

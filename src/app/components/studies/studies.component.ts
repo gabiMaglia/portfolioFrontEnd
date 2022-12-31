@@ -55,6 +55,7 @@ export class StudiesComponent implements OnInit {
       next: (response: Studies) => {
         this.getStudies();
         location.reload();
+        
         alert ("Add ok"); 
       },
       error: (error: HttpErrorResponse) => {

@@ -32,7 +32,6 @@ export class AuthService {
   }
 
   public islog(): Boolean {
-    
-    return (sessionStorage.getItem('currentUser') !== null)
+    return sessionStorage.getItem('currentUser') !== null;
   }
 }

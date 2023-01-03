@@ -96,7 +96,7 @@ export class WorkCardComponent implements OnInit {
     return el.id;
   }
 
-  // formMethod SKills
+  // formMethod proyects
 
   initFormJob(): FormGroup {
     return this.fb.group({
@@ -104,8 +104,8 @@ export class WorkCardComponent implements OnInit {
       title_pro: ['', Validators.required],
       technologies_pro: [''],
       description_pro: ['', Validators.required],
-      deploy_link_pro: [''],
-      github_link_pro: [''],
+      deployLink_pro: [''],
+      githubLink_pro: [''],
       img1_pro: [''],
       img2_pro: [''],
       img3_pro: [''],
@@ -122,11 +122,11 @@ export class WorkCardComponent implements OnInit {
       title_pro: data.title_pro,
       technologies_pro: data.technologies_pro,
       description_pro: data.description_pro,
-      deploy_link_pro: data.deploy_link_pro,
-      github_link_pro: data.github_link_pro,
-      img1_pro: data.deploy_link_pro,
-      img2_pro: data.deploy_link_pro,
-      img3_pro: data.deploy_link_pro,
+      deployLink_pro: data.deployLink_pro,
+      githubLink_pro: data.githubLink_pro,
+      img1_pro: data.img1_pro,
+      img2_pro: data.img2_pro,
+      img3_pro: data.img3_pro,
   
     });
   }

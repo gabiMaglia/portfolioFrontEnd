@@ -5,14 +5,14 @@ import { environment } from 'src/environments/environment';
 import Proyects from '../model/proyects.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProyectsService {
-  URL =environment.server ;
-  constructor(private httpClient: HttpClient) { }
+  URL = environment.server;
+  constructor(private httpClient: HttpClient) {}
 
-  public getProyects(): Observable<Proyects[]>{
-    return this.httpClient.get<Proyects[]>(`${this.URL}/get/pro`)  
+  public getProyects(): Observable<Proyects[]> {
+    return this.httpClient.get<Proyects[]>(`${this.URL}/get/pro`);
   }
 
   public addProyect(proyect: Proyects): Observable<Proyects> {

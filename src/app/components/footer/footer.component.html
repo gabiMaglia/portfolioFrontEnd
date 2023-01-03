@@ -1,98 +1,186 @@
-
-<footer  class="bg-dark text-center text-white">
-    <!-- form -->
-    <div id="contact" class="content holder bg-dark text-white">
-      <div class="form">
-        <form
-          action="/contacto"
-          method="post"
-          class="formulario"
-        >
-          <h2>Contact Me</h2>
+<footer class="bg-dark text-center text-white">
+  <!-- form -->
+  <div id="contact" class="content holder bg-dark text-white">
+    <div class="form">
+      <form
+        (ngSubmit)="sendMail(this.contactFormMailer.value)"
+        [formGroup]="contactFormMailer"
+        class="formulario"
+      >
+        <h2>Contact Me</h2>
+        
+        <div class="form-group">
           <p>
-            <input
-              type="text"
-              name="nombre"
-              required
-            />
+            <input type="text" formControlName="name" required />
             <label for="nombre">Name</label>
           </p>
           <p>
-            <input
-              type="text"
-              name="apellido"
-              required
-            />
+            <input type="text" formControlName="surname" required />
             <label for="apellido">Surname</label>
           </p>
           <p>
-            <input
-              type="text"
-              name="mail"
-              required
-            />
+            <input type="text" formControlName="email" required />
             <label for="mail">Email</label>
           </p>
           <p>
-            <input
-              type="text"
-              name="mensaje"
-              placeholder="Mensaje"
-            />
+            <input type="text" formControlName="mensaje" placeholder="Mensaje" />
             <label for="mensaje"></label>
           </p>
-         
           <p>
-             <button type="submit" class="btn btn-outline-light" > Send </button>
+            <button type="submit" class="btn btn-outline-light">Send</button>
           </p>
-  
-        </form>
-      </div>
-    </div>  
-    <!-- end form -->
-  
-  
-      <!-- Grid container -->
-      <div class="container-sm p-4 pb-0">
-        <!-- Section: Social media -->
-        <section class="mb-4">
-          <!-- Facebook -->
-          <a class="btn btn-outline-light btn-floating m-1" href={{socialM.facebook}} target="_blank" role="button"
-            ><i class="fab fa-facebook-f"></i
-          ></a>
-          <!-- Google -->
-          <a class="btn btn-outline-light btn-floating m-1" href={{socialM.e_mail}}  role="button"
-            ><i class="fab fa-google"></i
-          ></a>
-    
-          <!-- Instagram -->
-          <a class="btn btn-outline-light btn-floating m-1" href={{socialM.instagram}} target="_blank" role="button"
-            ><i class="fab fa-instagram"></i
-          ></a>
-    
-          <!-- Linkedin -->
-          <a class="btn btn-outline-light btn-floating m-1" href={{socialM.linkedin}} target="_blank" role="button"
-            ><i class="fab fa-linkedin-in"></i
-          ></a>
-    
-          <!-- Github -->
-          <a class="btn btn-outline-light btn-floating m-1" href={{socialM.github}} target="_blank" role="button"
-            ><i class="fab fa-github"></i
-          ></a>
-          <a class="btn btn-outline-light btn-floating m-1" href="https://wa.me/{{persona.telephone_persona}}" target="_blank" role="button"
-            ><i class="fa-brands fa-whatsapp"></i></a>
-          
-        </section>
-        <!-- Section: Social media -->
-      </div>
-      <!-- Grid container -->
-    
-      <!-- Copyright -->
-      <div class="text-center copy p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        © 2022 Copyright:
-        <p class="text-white" target="_blank">{{persona.name_persona}} {{persona.surname_persona}}</p>
-        
-      </div>
-      <!-- Copyright -->
-    </footer>
-  
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- end form -->
+
+  <!-- Grid container -->
+  <div class="container-sm p-4 pb-0">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a
+        class="btn btn-outline-light btn-floating m-1"
+        href="{{ socialM.facebook }}"
+        target="_blank"
+        role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+      <!-- Google -->
+      <a
+        class="btn btn-outline-light btn-floating m-1"
+        href="mailto:{{ socialM.gmail }}?subject=subject"
+        role="button"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a
+        class="btn btn-outline-light btn-floating m-1"
+        href="{{ socialM.instagram }}"
+        target="_blank"
+        role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a
+        class="btn btn-outline-light btn-floating m-1"
+        href="{{ socialM.linkedin }}"
+        target="_blank"
+        role="button"
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
+
+      <!-- Github -->
+      <a
+        class="btn btn-outline-light btn-floating m-1"
+        href="{{ socialM.github }}"
+        target="_blank"
+        role="button"
+        ><i class="fab fa-github"></i
+      ></a>
+      <a
+        class="btn btn-outline-light btn-floating m-1"
+        href="https://wa.me/{{ persona.telephone_persona }}"
+        target="_blank"
+        role="button"
+        ><i class="fa-brands fa-whatsapp"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <div *ngIf="isLog" class="editBtn">
+    <button
+      (click)="modalUpdate.openModal(onPatchValueSocialM(socialM))"
+      class="btn btn-outline-dark btn-floating"
+    >
+      Edit Social Media
+    </button>
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div
+    class="text-center copy p-3"
+    style="background-color: rgba(0, 0, 0, 0.2)"
+  >
+    © 2022 Copyright:
+    <p class="text-white" target="_blank">
+      {{ persona.name_persona }} {{ persona.surname_persona }}
+    </p>
+  </div>
+  <!-- Copyright -->
+</footer>
+
+<app-modal [title]="'Edit Social Media'" #modalUpdate>
+  <form
+    #form
+    (ngSubmit)="updateSocialM(this.contactFormSocialM)"
+    [formGroup]="contactFormSocialM"
+  >
+    <div class="form-group">
+      <label for="instagram">Instagram</label>
+      <input
+        [ngStyle]="{ width: '100%' }"
+        formControlName="instagram"
+        type="text"
+        placeholder=""
+      />
+      <label for="facebook">Facebook</label>
+      <input
+        [ngStyle]="{ width: '100%' }"
+        formControlName="facebook"
+        type="text"
+        placeholder=""
+      />
+      <label for="linkedin">Linkedin</label>
+      <input
+        [ngStyle]="{ width: '100%' }"
+        formControlName="linkedin"
+        type="text"
+        placeholder=""
+      />
+      <label for="github">Github</label>
+      <input
+        [ngStyle]="{ width: '100%' }"
+        formControlName="github"
+        type="text"
+        placeholder=""
+      />
+      <label for="gmail">Gmail</label>
+      <input
+        [ngStyle]="{ width: '100%' }"
+        formControlName="gmail"
+        type="text"
+        placeholder=""
+      />
+      <label for="persona_id">User ID</label>
+      <input
+        [ngStyle]="{ width: '100%' }"
+        formControlName="persona_id"
+        type="text"
+        readonly
+        required
+      />
+      <label for="persona_dni_persona">User Dni</label>
+      <input
+        [ngStyle]="{ width: '100%' }"
+        formControlName="persona_DNI_persona"
+        type="text"
+        readonly
+        required
+      />
+
+      <button
+        [disabled]="contactFormSocialM.invalid"
+        [ngStyle]="{ width: '100%', 'margin-top': '1rem' }"
+        type="submit"
+        class="btn btn-outline-dark btn-floating"
+      >
+        Accept
+      </button>
+    </div>
+  </form>
+</app-modal>

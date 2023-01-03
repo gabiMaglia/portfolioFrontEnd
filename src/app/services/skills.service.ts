@@ -6,17 +6,14 @@ import { environment } from 'src/environments/environment';
 import Skills from '../model/skills.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
-
 export class SkillsService {
-
   URL = environment.server;
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
-  public getSkills(): Observable<Skills[]>{
-    return this.httpClient.get<Skills[]>(`${this.URL}/get/skill`)  
+  public getSkills(): Observable<Skills[]> {
+    return this.httpClient.get<Skills[]>(`${this.URL}/get/skill`);
   }
   public addSkills(skill: Skills): Observable<Skills> {
     return this.httpClient.post<Skills>(`${this.URL}/add/skill`, skill);

@@ -1,28 +1,26 @@
 #my-work {
-    background-color: var(--white);
-    min-height: 60rem;
-    color: var(--white);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-inline: center;
-    text-align: center;
+  background-color: var(--white);
+  min-height: 60rem;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-inline: center;
+  text-align: center;
 }
-a{
-    text-align: center;
-    
+a {
+  text-align: center;
 }
-#addBtn{
-    padding-bottom: 2rem;
-    margin-bottom: 1rem;
-   
-    width: 10rem;
+#addBtn {
+  padding-bottom: 2rem;
+  margin-bottom: 1rem;
+
+  width: 10rem;
 }
 
-.title{
-    text-align: center;
-    margin-bottom: 10rem;
-    color: var(--boostrapBlack);
-    top: 50%;
-
+.title {
+  text-align: center;
+  margin-bottom: 10rem;
+  color: var(--boostrapBlack);
+  top: 50%;
 }

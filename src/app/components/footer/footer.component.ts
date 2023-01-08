@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Persona from 'src/app/model/persona.model';
 import SocialM from 'src/app/model/socialM.model';
 import { AuthService } from 'src/app/services/auth-service.service';
+import { MailerServiceService } from 'src/app/services/mailer-service.service';
 import { PersonaService } from 'src/app/services/persona.service';
 import { SocialService } from 'src/app/services/social.service';
 
@@ -26,7 +27,8 @@ export class FooterComponent implements OnInit {
     private getPersonaService: PersonaService,
     private socialMService: SocialService,
     private authService: AuthService,
-    private readonly fb: FormBuilder
+    private readonly fb: FormBuilder,
+    private mailService: MailerServiceService
   ) {}
 
   ngOnInit(): void {
@@ -64,6 +66,7 @@ export class FooterComponent implements OnInit {
 
   sendMail(contactForm: FormGroup) {
     console.log(contactForm)
+    // this.mailService.sendMail(contactForm.value)
     
   }
 

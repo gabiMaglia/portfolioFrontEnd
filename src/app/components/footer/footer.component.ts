@@ -21,9 +21,8 @@ export class FooterComponent implements OnInit {
   socialM: SocialM = new SocialM(0, '', '', '', '', '');
 
   contactFormSocialM!: FormGroup;
-  contactFormMailer!: FormGroup
+  contactFormMailer!: FormGroup;
 
-  
   constructor(
     private getPersonaService: PersonaService,
     private socialMService: SocialService,
@@ -42,7 +41,6 @@ export class FooterComponent implements OnInit {
   getSocialM() {
     this.socialMService.getSocialM().subscribe((data) => {
       this.socialM = data[0];
-      
     });
   }
 
@@ -66,7 +64,7 @@ export class FooterComponent implements OnInit {
   }
 
   sendMail(contactForm: FormGroup) {
-    console.log(contactForm.value)
+    console.log(contactForm.value);
     this.mailService.sendMail(this.contactFormMailer.value).subscribe({
       next: (response: Email) => {
         alert('Send ok');
@@ -75,8 +73,7 @@ export class FooterComponent implements OnInit {
       error: (error: HttpErrorResponse) => {
         alert(error.message);
       },
-    })
-    
+    });
   }
 
   // formSocialM
@@ -108,14 +105,13 @@ export class FooterComponent implements OnInit {
     });
   }
 
-   // formMailer
-   initFormMailer(): FormGroup {
+  // formMailer
+  initFormMailer(): FormGroup {
     return this.fb.group({
       name: [''],
       surname: [''],
       email: [''],
-      mensaje: ['']
+      mensaje: [''],
     });
   }
-
 }

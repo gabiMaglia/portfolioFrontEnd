@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Email from 'src/app/model/email.model';
 import Persona from 'src/app/model/persona.model';
 import SocialM from 'src/app/model/socialM.model';
 import { AuthService } from 'src/app/services/auth-service.service';
@@ -65,8 +66,16 @@ export class FooterComponent implements OnInit {
   }
 
   sendMail(contactForm: FormGroup) {
-    console.log(contactForm)
-    // this.mailService.sendMail(contactForm.value)
+    console.log(contactForm.value)
+    this.mailService.sendMail(this.contactFormMailer.value).subscribe({
+      next: (response: Email) => {
+        alert('Send ok');
+        this.contactFormMailer.reset();
+      },
+      error: (error: HttpErrorResponse) => {
+        alert(error.message);
+      },
+    })
     
   }
 
@@ -106,16 +115,7 @@ export class FooterComponent implements OnInit {
       surname: [''],
       email: [''],
       mensaje: ['']
-
     });
   }
 
-  onPatchValueMailer(data: any): any {
-    return this.contactFormMailer.patchValue({
-      name: data.name,
-      surname: data.surname,
-      email: data.email,
-      message: data.mesage
-    });
-  }
 }

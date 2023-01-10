@@ -3,7 +3,8 @@
   <div id="contact" class="content holder bg-dark text-white">
     <div class="form">
       <form
-        (ngSubmit)="sendMail(this.contactFormMailer.value)"
+        #mailForm = 'ngForm'
+        (ngSubmit)="sendMail(this.contactFormMailer)"
         [formGroup]="contactFormMailer"
         class="formulario"
       >

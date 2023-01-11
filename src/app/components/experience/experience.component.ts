@@ -5,6 +5,8 @@ import Experience from 'src/app/model/experience.model';
 import { AuthService } from 'src/app/services/auth-service.service';
 import { ExperienceService } from 'src/app/services/experience.service';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-experience',
   templateUrl: './experience.component.html',
@@ -38,6 +40,28 @@ export class ExperienceComponent implements OnInit {
     this.contactForm = this.initForm();
   }
 
+  succesAlert(message: String) {
+    return  Swal.fire({
+      title: 'Succes',
+      text: message.valueOf(),
+      icon: 'success',
+      iconColor: "Black",
+      showConfirmButton: false,
+      timer: 2500
+    })
+  }
+
+  errorAlert(message: String) {
+    return  Swal.fire({
+      title: 'Error',
+      text: message.valueOf(),
+      icon: 'error',
+      iconColor: "Black",
+      showConfirmButton: false,
+      timer: 2500
+    })
+  }
+
   // Crud methods
   public getExp(): void {
     this.expService.getExp().subscribe({
@@ -45,7 +69,7 @@ export class ExperienceComponent implements OnInit {
         this.jobs = response;
       },
       error: (error: HttpErrorResponse) => {
-        alert(error.message);
+        this.errorAlert(error.statusText);
       },
     });
   }
@@ -54,11 +78,12 @@ export class ExperienceComponent implements OnInit {
     this.expService.addExp(contactForm.value).subscribe({
       next: (response: Experience) => {
         this.getExp();
-        location.reload();
-        alert('Add ok');
+        this.succesAlert('Add ok');
+
+        
       },
       error: (error: HttpErrorResponse) => {
-        alert(error.message);
+        this.errorAlert(error.statusText);
         this.getExp();
       },
     });
@@ -68,11 +93,10 @@ export class ExperienceComponent implements OnInit {
     this.expService.updateExp(contactForm.value).subscribe({
       next: (response: Experience) => {
         this.getExp();
-        location.reload();
-        alert('Update ok');
+        this.succesAlert('Update ok');
       },
       error: (error: HttpErrorResponse) => {
-        alert(error.message);
+        this.errorAlert(error.statusText);
       },
     });
   }
@@ -81,11 +105,10 @@ export class ExperienceComponent implements OnInit {
     this.expService.deleteExp(id).subscribe({
       next: (response: void) => {
         this.getExp();
-        location.reload();
-        alert('Delete ok');
+        this.succesAlert('Delete ok');
       },
       error: (error: HttpErrorResponse) => {
-        alert(error.message);
+        this.errorAlert(error.statusText);
         this.getExp();
       },
     });
@@ -103,7 +126,6 @@ export class ExperienceComponent implements OnInit {
       description_exp: ['', Validators.required],
       startDate_exp: ['', Validators.required],
       endDate_exp: ['', Validators.required],
-      is_actual_job_exp: [''],
       img_exp: [''],
       persona_id: ['1', Validators.required],
       persona_DNI_persona: ['32758971', Validators.required],
@@ -118,7 +140,6 @@ export class ExperienceComponent implements OnInit {
       description_exp: data.description_exp,
       startDate_exp: data.startDate_exp,
       endDate_exp: data.endDate_exp,
-      is_actual_job_exp: data.is_actual_job_exp,
       img_exp: data.img_exp,
       persona_id: data.persona_id,
       persona_DNI_persona: data.persona_DNI_persona,

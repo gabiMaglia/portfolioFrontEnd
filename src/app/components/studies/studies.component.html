@@ -1,4 +1,11 @@
 <article class="container-fluid m-0 p-0 g-0 section-container">
+  <!-- Notification for no educations -->
+  <div *ngIf="studies?.length == 0 && isLog" class="mt-5">
+    <div class="d-flex justify-content-center bg-light" role="alert">
+      <h4 class="alert-heading">No Studies found</h4>
+    </div>
+  </div>
+  <!-- Studies Container -->
   <div id="container" class="container-xxl">
     <div
       *ngIf="!isLog"
@@ -23,7 +30,11 @@
         class="row mx-1 py-3 d-flex flex-wraprounded-top rounded-bottom bg-none border studies-cont"
       >
         <div class="col-2 img-job-cont">
-          <img class="img-thumbnail" [src]="studie.img_st || defaultImgValue" alt="UtnBa" />
+          <img
+            class="img-thumbnail"
+            [src]="studie.img_st || defaultImgValue"
+            alt="UtnBa"
+          />
         </div>
 
         <div class="col-10 d-flex flex-column justify-content-center data-cont">
@@ -31,7 +42,7 @@
           <h4>{{ studie.institution_st }}</h4>
           <h5>{{ studie.title_st }}</h5>
           <p class="description">{{ studie.description_st }}</p>
-          <h6>{{ studie.startDate_st }} {{ studie.endDate_st }}</h6>
+          <h6>{{ studie.startDate_st }} to {{ studie.endDate_st }}</h6>
         </div>
         <div *ngIf="isLog" class="editPannel">
           <button
@@ -51,15 +62,27 @@
       <button
         *ngIf="isLog"
         (click)="modalAdd.openModal(null)"
+        (click)="this.contactForm = this.initForm()"
         id="addBtn"
-        class="btn btn-outline-dark"
+        class="btn btn-outline-dark mt-5"
       >
         <i class="fa-solid fa-plus"></i> Add new Studie
       </button>
     </div>
+    <!-- Notification for no data -->
+    <div
+      *ngIf="studies?.length == 0 && !isLog"
+      class="col-lg-12 col-md-12 col-xl-12 spinner d-flex justify-content-center"
+      [ngStyle]="{ 'margin-top':'14rem' }"
+    >
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
   </div>
 </article>
 
+<!-- Modals -->
 <div #modals>
   <!-- Add Education Modal-->
   <app-modal [title]="'Add Studie'" #modalAdd>
@@ -67,6 +90,7 @@
       #form
       (ngSubmit)="addStudies(this.contactForm)"
       [formGroup]="contactForm"
+      (ngSubmit)="modalAdd.closeModal()"
     >
       <div class="form-group">
         <label for="title_st">Title</label>
@@ -107,7 +131,6 @@
           formControlName="endDate_st"
           type="text"
           placeholder=""
-         
         />
         <label for="img_st">Photo</label>
         <input
@@ -115,7 +138,6 @@
           formControlName="img_st"
           type="text"
           placeholder=""
-          
         />
         <label for="persona_id">User ID</label>
         <input
@@ -152,6 +174,7 @@
       #form
       (ngSubmit)="updateStudies(this.contactForm)"
       [formGroup]="contactForm"
+      (ngSubmit)="modalEdit.closeModal()"
     >
       <div class="form-group">
         <label for="title_st">Title</label>
@@ -187,14 +210,12 @@
           [ngStyle]="{ width: '100%' }"
           formControlName="endDate_st"
           type="text"
-     
         />
         <label for="img_st">Photo</label>
         <input
           [ngStyle]="{ width: '100%' }"
           formControlName="img_st"
           type="text"
-     
         />
         <label for="persona_id">User ID</label>
         <input
@@ -227,7 +248,11 @@
 
   <!-- Delete Modal -->
   <app-modal [title]="'Delete Studie?'" #modalDelete>
-    <form #form (ngSubmit)="deleteStudie(modalDelete.obj.id)">
+    <form
+      #form
+      (ngSubmit)="deleteStudie(modalDelete.obj.id)"
+      (ngSubmit)="modalDelete.closeModal()"
+    >
       <h1 class="text-center mb-5" *ngIf="modalDelete.obj">
         {{ modalDelete.obj.title_st }}
       </h1>
@@ -251,24 +276,4 @@
       </div>
     </form>
   </app-modal>
-</div>
-
-<!-- Notification for no educations -->
-<div
-  *ngIf="studies?.length == 0 && isLog"
-  class="col-lg-12 col-md-12 col-xl-12"
->
-  <div class="alert alert-info" role="alert">
-    <h4 class="alert-heading">No hay educacion!</h4>
-    <p>No se encontró ninguna educacion</p>
-  </div>
-</div>
-<!-- Notification for no data -->
-<div
-  *ngIf="studies?.length == 0 && !isLog"
-  class="col-lg-12 col-md-12 col-xl-12 spinner"
->
-  <div class="spinner-border" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
 </div>

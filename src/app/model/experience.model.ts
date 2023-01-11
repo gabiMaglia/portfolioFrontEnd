@@ -1,12 +1,11 @@
 export default class Experience {
+  
   id: number;
 
   title_exp: string;
 
   institution_exp: string;
-
-  isActualJob_exp: boolean;
-
+  
   startDate_exp: string;
 
   endDate_exp: string;
@@ -22,7 +21,7 @@ export default class Experience {
     id: number,
     title_exp: string,
     institution_exp: string,
-    isActualJob_exp: boolean,
+
     startDate_exp: string,
     endDate_exp: string,
     description_exp: string,
@@ -33,7 +32,7 @@ export default class Experience {
     this.id = id;
     this.title_exp = title_exp;
     this.institution_exp = institution_exp;
-    this.isActualJob_exp = isActualJob_exp;
+  
     this.startDate_exp = startDate_exp;
     this.endDate_exp = endDate_exp;
     this.description_exp = description_exp;

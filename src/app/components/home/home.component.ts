@@ -15,8 +15,12 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+   this.setTitlePage();
+  }
+
+  setTitlePage(){
     this.getPersona.getPersona().subscribe((data) => {
-      this.titleService.setTitle(data[0].name_persona.toString());
+      this.titleService.setTitle(data[0].name_persona.toString()+data[0].surname_persona.toString() + " portfolio");
     });
   }
 }

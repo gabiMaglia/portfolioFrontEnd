@@ -42,7 +42,7 @@
     width: 100%;
     border-radius: var(--borderRadius);
   }
-  
+
   .portada {
     z-index: 1;
     position: absolute;
@@ -67,7 +67,7 @@
   }
 
   #addBtn{
-    margin-bottom: 1rem;
+    margin-bottom: 5rem;
     width: 10rem;
   }
   

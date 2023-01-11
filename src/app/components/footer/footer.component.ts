@@ -9,6 +9,8 @@ import { MailerServiceService } from 'src/app/services/mailer-service.service';
 import { PersonaService } from 'src/app/services/persona.service';
 import { SocialService } from 'src/app/services/social.service';
 
+import Swal from 'sweetalert2'
+
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -22,6 +24,8 @@ export class FooterComponent implements OnInit {
 
   contactFormSocialM!: FormGroup;
   contactFormMailer!: FormGroup;
+
+ 
 
   constructor(
     private getPersonaService: PersonaService,
@@ -38,6 +42,28 @@ export class FooterComponent implements OnInit {
     this.contactFormMailer = this.initFormMailer();
   }
 
+  succesAlert(message: String) {
+    return  Swal.fire({
+      title: 'Succes',
+      text: message.valueOf(),
+      icon: 'success',
+      iconColor: "Black",
+      showConfirmButton: false,
+      timer: 2500
+    })
+  }
+
+  errorAlert(message: String) {
+    return  Swal.fire({
+      title: 'Error',
+      text: message.valueOf(),
+      icon: 'error',
+      iconColor: "Black",
+      showConfirmButton: false,
+      timer: 2500
+    })
+  }
+
   getSocialM() {
     this.socialMService.getSocialM().subscribe((data) => {
       this.socialM = data[0];
@@ -47,12 +73,11 @@ export class FooterComponent implements OnInit {
   updateSocialM(contactForm: FormGroup) {
     this.socialMService.updateSocialM(contactForm.value).subscribe({
       next: (response: SocialM) => {
-        alert('Update ok');
+        this.succesAlert('Social Media Updated');
         this.getSocialM();
-        location.reload();
       },
       error: (error: HttpErrorResponse) => {
-        alert(error.message);
+        this.errorAlert(error.statusText);
       },
     });
   }
@@ -67,11 +92,11 @@ export class FooterComponent implements OnInit {
     console.log(contactForm.value);
     this.mailService.sendMail(this.contactFormMailer.value).subscribe({
       next: (response: Email) => {
-        alert('Send ok');
+        this.succesAlert('Your email has been sent');
         this.contactFormMailer.reset();
       },
       error: (error: HttpErrorResponse) => {
-        alert(error.message);
+        this.errorAlert(error.statusText);
       },
     });
   }
@@ -108,7 +133,7 @@ export class FooterComponent implements OnInit {
   // formMailer
   initFormMailer(): FormGroup {
     return this.fb.group({
-      name: [''],
+      name: ['', Validators.required], 
       surname: [''],
       email: [''],
       mensaje: [''],

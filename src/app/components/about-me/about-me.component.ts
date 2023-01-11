@@ -7,6 +7,8 @@ import { AuthService } from 'src/app/services/auth-service.service';
 import { PersonaService } from 'src/app/services/persona.service';
 import { SkillsService } from 'src/app/services/skills.service';
 
+import Swal from 'sweetalert2'
+
 @Component({
   selector: 'app-about-me',
   templateUrl: './about-me.component.html',
@@ -42,6 +44,28 @@ export class AboutMeComponent implements OnInit {
     this.contactFormSkill = this.initFormSkill();
   }
 
+  succesAlert(message: String) {
+    return  Swal.fire({
+      title: 'Succes',
+      text: message.valueOf(),
+      icon: 'success',
+      iconColor: "Black",
+      showConfirmButton: false,
+      timer: 2500
+    })
+  }
+
+  errorAlert(message: String) {
+    return  Swal.fire({
+      title: 'Error',
+      text: message.valueOf(),
+      icon: 'error',
+      iconColor: "Black",
+      showConfirmButton: false,
+      timer: 2500
+    })
+  }
+
   // Persona Crud
   public getPersona(): void {
     this.personaService.getPersona().subscribe((data) => {
@@ -65,12 +89,13 @@ export class AboutMeComponent implements OnInit {
     console.log(contactForm.value);
     this.personaService.updatePersona(contactForm.value).subscribe({
       next: (response: Persona) => {
+        this.succesAlert('Update ok');
         this.getPersona();
-        alert('Update ok');
-        location.reload();
+  
+       
       },
       error: (error: HttpErrorResponse) => {
-        alert(error.message);
+        this.errorAlert(error.statusText);
       },
     });
   }
@@ -87,13 +112,12 @@ export class AboutMeComponent implements OnInit {
   public addSkill(contactForm: FormGroup) {
     this.skillService.addSkills(contactForm.value).subscribe({
       next: (response: Skills) => {
+        this.succesAlert('Add ok');
         this.getSkills();
-        location.reload();
 
-        alert('Add ok');
       },
       error: (error: HttpErrorResponse) => {
-        alert(error.message);
+        this.errorAlert(error.statusText);
         this.getSkills();
       },
     });
@@ -102,12 +126,11 @@ export class AboutMeComponent implements OnInit {
   updateSkill(contactForm: FormGroup) {
     this.skillService.updateSkills(contactForm.value).subscribe({
       next: (response: Skills) => {
+        this.succesAlert('Update ok');
         this.getSkills();
-        alert('Update ok');
-        location.reload();
       },
       error: (error: HttpErrorResponse) => {
-        alert(error.message);
+        this.errorAlert(error.statusText);
       },
     });
   }
@@ -115,12 +138,11 @@ export class AboutMeComponent implements OnInit {
   public deleteSkill(id: Number): void {
     this.skillService.deleteSkills(id).subscribe({
       next: (response: void) => {
+        this.succesAlert('Delete ok');
         this.getSkills();
-        location.reload();
-        alert('Delete ok');
       },
       error: (error: HttpErrorResponse) => {
-        alert(error.message);
+        this.errorAlert(error.statusText)
         this.getSkills();
       },
     });

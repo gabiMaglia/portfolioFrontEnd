@@ -12,15 +12,15 @@
         
         <div class="form-group">
           <p>
-            <input type="text" formControlName="name" required />
+            <input type="text" formControlName="name"  />
             <label for="nombre">Name</label>
           </p>
           <p>
-            <input type="text" formControlName="surname" required />
+            <input type="text" formControlName="surname" />
             <label for="apellido">Surname</label>
           </p>
           <p>
-            <input type="text" formControlName="email" required />
+            <input type="text" formControlName="email" />
             <label for="mail">Email</label>
           </p>
           <p>
@@ -28,7 +28,9 @@
             <label for="mensaje"></label>
           </p>
           <p>
-            <button type="submit" class="btn btn-outline-light">Send</button>
+            <button type="submit" class="btn btn-outline-light"   
+            [disabled]="contactFormMailer.invalid"
+             >Send</button>
           </p>
         </div>
       </form>
@@ -115,11 +117,13 @@
   <!-- Copyright -->
 </footer>
 
+
 <app-modal [title]="'Edit Social Media'" #modalUpdate>
   <form
     #form
     (ngSubmit)="updateSocialM(this.contactFormSocialM)"
     [formGroup]="contactFormSocialM"
+    (ngSubmit)="modalUpdate.closeModal()"
   >
     <div class="form-group">
       <label for="instagram">Instagram</label>

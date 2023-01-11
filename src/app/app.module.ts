@@ -13,17 +13,15 @@ import { SeparatorComponent } from './components/common/separator/separator.comp
 import { StudiesComponent } from './components/studies/studies.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { WorkCardComponent } from './components/work-card/work-card.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { EditPannelComponent } from './components/edit-pannel/edit-pannel.component';
-import { AddBtnComponent } from './components/common/add-btn/add-btn.component';
 import { ModalComponent } from './components/common/modal/modal.component';
 import { ArgProgLogoComponent } from './components/common/arg-prog-logo/arg-prog-logo.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ResumeComponent } from './components/common/resume/resume.component';
+
 
 
 
@@ -37,12 +35,10 @@ import { ResumeComponent } from './components/common/resume/resume.component';
     StudiesComponent,
     ExperienceComponent,
     FooterComponent,
-    WorkCardComponent,
+
     PortfolioComponent,
     LoginComponent,
     HomeComponent,
-    EditPannelComponent,
-    AddBtnComponent,
     ModalComponent,
     ArgProgLogoComponent,
     ResumeComponent,
@@ -55,7 +51,9 @@ import { ResumeComponent } from './components/common/resume/resume.component';
     AppRoutingModule,
     NgbModule,
     BrowserAnimationsModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Persona from 'src/app/model/persona.model';
 
 import { PersonaService } from 'src/app/services/persona.service';
 
@@ -8,13 +9,18 @@ import { PersonaService } from 'src/app/services/persona.service';
   styleUrls: ['./front-page.component.css'],
 })
 export class FrontPageComponent implements OnInit {
-  catchPhrase?: String;
+  catchPhrase!: String;
 
-  constructor(private getPersona: PersonaService) {}
+  constructor(private personaService: PersonaService) {}
 
   ngOnInit(): void {
-    this.getPersona.getPersona().subscribe((data) => {
+    this.getPhrase()
+  }
+
+  public getPhrase(): void {
+    this.personaService.getPersona().subscribe((data) => {
       this.catchPhrase = data[0].main_phrase;
+
     });
   }
 }

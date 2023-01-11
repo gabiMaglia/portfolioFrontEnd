@@ -133,12 +133,12 @@
           </figure>
         </div>
       </div>
-      
+
       <div class="btn-cont">
-        
         <button
           *ngIf="isLog"
           (click)="modalAddSkill.openModal(null)"
+          (click)="this.contactFormSkill = this.initFormSkill()"
           class="button-add btn btn-outline-light btn-floating align-items-center"
         >
           <i class="fas fa-plus"></i>
@@ -158,19 +158,15 @@
     #form
     (ngSubmit)="addSkill(this.contactFormSkill)"
     [formGroup]="contactFormSkill"
+    (ngSubmit)="modalAddSkill.closeModal()"
   >
     <div class="form-group">
+      <label for="type">Hard/Soft</label>
       <select [ngStyle]="{ width: '100%' }" formControlName="type" id="type">
         <option value="hard">Hard</option>
         <option value="soft">Soft</option>
       </select>
-      <label for="type">Hard/Soft</label>
-      <input
-        [ngStyle]="{ width: '100%' }"
-        formControlName="type"
-        type="text"
-        required
-      />
+
       <label for="name">Name</label>
       <input
         [ngStyle]="{ width: '100%' }"
@@ -222,13 +218,14 @@
     #form
     (ngSubmit)="updateSkill(this.contactFormSkill)"
     [formGroup]="contactFormSkill"
+    (ngSubmit)="modalEditSkill.closeModal()"
   >
     <div class="form-group">
+      <label class="d-block mb-1" for="type">Hard/Soft</label>
       <select [ngStyle]="{ width: '100%' }" formControlName="type" id="type">
         <option value="hard">Hard</option>
         <option value="soft">Soft</option>
       </select>
-      <label class="d-block mb-1" for="type">Hard/Soft</label>
       <label for="name">Name</label>
       <input
         [ngStyle]="{ width: '100%' }"
@@ -276,7 +273,12 @@
 </app-modal>
 
 <app-modal [title]="'Delete Skill?'" #modalDeleteSkill>
-  <form #form (ngSubmit)="deleteSkill(modalDeleteSkill.obj.id)">
+  <form
+    #form
+    (ngSubmit)="deleteSkill(modalDeleteSkill.obj.id)"
+    [formGroup]="contactFormSkill"
+    (ngSubmit)="modalDeleteSkill.closeModal()"
+  >
     <h1 class="text-center mb-5" *ngIf="modalDeleteSkill.obj">
       {{ modalDeleteSkill.obj.name }}
     </h1>
@@ -306,13 +308,13 @@
     #form
     (ngSubmit)="updatePersona(this.contactFormPersona)"
     [formGroup]="contactFormPersona"
+    (ngSubmit)="modalImgUpdate.closeModal()"
   >
-  <div class="form-group">
+    <div class="form-group">
       <input
         [ngStyle]="{ width: '100%' }"
         formControlName="photo_url"
         type="text"
-        
       />
       <button
         [ngStyle]="{ width: '100%', 'margin-top': '1rem' }"
@@ -321,9 +323,8 @@
       >
         Accept
       </button>
-      </div>
-    </form>
-
+    </div>
+  </form>
 </app-modal>
 
 <app-modal [title]="'Edit Phrases'" #modalPhrasesUpdate
@@ -332,35 +333,35 @@
     #form
     (ngSubmit)="updatePersona(this.contactFormPersona)"
     [formGroup]="contactFormPersona"
+    (ngSubmit)="modalPhrasesUpdate.closeModal()"
   >
-  <div class="form-group">
-    <label for="phrase1">Phrase 1</label>
-    <input
-      [ngStyle]="{ width: '100%' }"
-      formControlName="phrase1"
-      type="text"
-      required
-    />
-    <label for="phrase2">Phrase 2</label>
-    <input
-      [ngStyle]="{ width: '100%' }"
-      formControlName="phrase2"
-      type="text"
-    />
-    <label for="phrase3">Phrase 3</label>
-    <input
-      [ngStyle]="{ width: '100%' }"
-      formControlName="phrase3"
-      type="text"
-    />
-    <button
-      [ngStyle]="{ width: '100%', 'margin-top': '1rem' }"
-      type="submit"
-      class="btn btn-outline-dark btn-floating"
-    >
-      Accept
-    </button>
-  </div>
+    <div class="form-group">
+      <label for="phrase1">Phrase 1</label>
+      <input
+        [ngStyle]="{ width: '100%' }"
+        formControlName="phrase1"
+        type="text"
+        required
+      />
+      <label for="phrase2">Phrase 2</label>
+      <input
+        [ngStyle]="{ width: '100%' }"
+        formControlName="phrase2"
+        type="text"
+      />
+      <label for="phrase3">Phrase 3</label>
+      <input
+        [ngStyle]="{ width: '100%' }"
+        formControlName="phrase3"
+        type="text"
+      />
+      <button
+        [ngStyle]="{ width: '100%', 'margin-top': '1rem' }"
+        type="submit"
+        class="btn btn-outline-dark btn-floating"
+      >
+        Accept
+      </button>
+    </div>
   </form>
-
 </app-modal>

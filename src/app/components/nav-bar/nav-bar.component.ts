@@ -7,6 +7,8 @@ import { AuthService } from 'src/app/services/auth-service.service';
 import { PersonaService } from 'src/app/services/persona.service';
 import { SocialService } from 'src/app/services/social.service';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -16,6 +18,7 @@ export class NavBarComponent implements OnInit {
   persona: Persona = new Persona(0, '', '', '', '', '', '', '', '', '');
   socialM: SocialM = new SocialM(0, '', '', '', '', '');
   contactFormPersona!: FormGroup;
+  contactFormCredentials!: FormGroup;
   isLog = this.authService.islog();
 
   constructor(
@@ -33,6 +36,27 @@ export class NavBarComponent implements OnInit {
     });
   }
 
+  succesAlert(message: String) {
+    return Swal.fire({
+      title: 'Succes',
+      text: message.valueOf(),
+      icon: 'success',
+      iconColor: 'black',
+      showConfirmButton: false,
+      timer: 2500,
+    });
+  }
+
+  errorAlert(message: String) {
+    return Swal.fire({
+      title: 'Error',
+      text: message.valueOf(),
+      icon: 'error',
+      iconColor: 'black',
+      showConfirmButton: false,
+      timer: 2500,
+    });
+  }
   logout(): void {
     this.authService.logOut();
   }
@@ -47,12 +71,11 @@ export class NavBarComponent implements OnInit {
     console.log(contactForm.value);
     this.personaService.updatePersona(contactForm.value).subscribe({
       next: (response: Persona) => {
+        this.succesAlert('Update ok');
         this.getPersona();
-        alert('Update ok');
-        location.reload();
       },
       error: (error: HttpErrorResponse) => {
-        alert(error.message);
+        this.errorAlert(error.statusText);
       },
     });
   }

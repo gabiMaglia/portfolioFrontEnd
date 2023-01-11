@@ -5,6 +5,7 @@ import Studies from 'src/app/model/studies.model';
 import { AuthService } from 'src/app/services/auth-service.service';
 import { StudiesService } from 'src/app/services/studies.service';
 
+import Swal from 'sweetalert2/src/sweetalert2.js';
 
 @Component({
   selector: 'app-studies',
@@ -35,6 +36,29 @@ export class StudiesComponent implements OnInit {
     this.contactForm = this.initForm()
   }
 
+  succesAlert(message: String) {
+    return  Swal.fire({
+      title: 'Succes',
+      text: message.valueOf(),
+      icon: 'success',
+      iconColor: "Black",
+      showConfirmButton: false,
+      timer: 2500,
+      
+    })
+  }
+
+  errorAlert(message: String) {
+    return  Swal.fire({
+      title: 'Error',
+      text: message.valueOf(),
+      icon: 'error',
+      iconColor: "Black",
+      showConfirmButton: false,
+      timer: 2500
+    })
+  }
+
   unfold(): void {
     this.hide = !!!this.hide;
   }
@@ -45,7 +69,7 @@ export class StudiesComponent implements OnInit {
         this.studies = response;
       },
       error: (error: HttpErrorResponse) => {
-        alert(error.message);
+        this.errorAlert(error.statusText);
       },
     });
   }
@@ -54,12 +78,11 @@ export class StudiesComponent implements OnInit {
     this.studiesService.addStudie(contactForm.value).subscribe({
       next: (response: Studies) => {
         this.getStudies();
-        location.reload();
+        this.succesAlert('Add ok'); 
         
-        alert ("Add ok"); 
       },
       error: (error: HttpErrorResponse) => {
-        alert(error.message);
+        this.errorAlert(error.statusText);
         this.getStudies();
       },
     });
@@ -69,11 +92,10 @@ export class StudiesComponent implements OnInit {
     this.studiesService.updateStudie(contactForm.value).subscribe({
       next: (response: Studies) => {
         this.getStudies();
-        location.reload();
-        alert ("Update ok"); 
+        this.succesAlert('Update ok');
       },
       error: (error: HttpErrorResponse) => {
-        alert(error.message);
+        this.errorAlert(error.statusText);
       },
     });
   }
@@ -82,12 +104,10 @@ export class StudiesComponent implements OnInit {
     this.studiesService.deleteStudie(id).subscribe({
       next: (response: void) => {
         this.getStudies();
-        location.reload();
-        alert ("Delete ok"); 
-        
+        this.succesAlert('Delete ok'); 
       },
       error: (error: HttpErrorResponse) => {
-        alert(error.message);
+        this.errorAlert(error.statusText);
         this.getStudies();
       },
     });
